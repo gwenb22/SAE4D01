@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../db');
+const db = require('../db');  // Assurez-vous que db.js est correctement configuré
 
+// Ajouter un progrès
 router.post('/', (req, res) => {
     const { user_id, total_plants, environment_impact } = req.body;
     
@@ -20,6 +21,7 @@ router.post('/', (req, res) => {
     });
 });
 
+// Obtenir les progrès d'un utilisateur
 router.get('/:user_id', (req, res) => {
     db.get('SELECT * FROM user_progress WHERE user_id = ?', 
         [req.params.user_id], (err, row) => {
@@ -33,6 +35,7 @@ router.get('/:user_id', (req, res) => {
     });
 });
 
+// Mettre à jour les progrès d'un utilisateur
 router.put('/:user_id', (req, res) => {
     const { total_plants, environment_impact } = req.body;
     

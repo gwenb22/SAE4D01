@@ -27,7 +27,7 @@ if not os.path.exists(UPLOAD_FOLDER):
 
 # Connexion à SQLite
 def get_db():
-    conn = sqlite3.connect('./backend/plants_management.db')
+    conn = sqlite3.connect('./backend/plantes.db')
     conn.row_factory = sqlite3.Row
     return conn
 

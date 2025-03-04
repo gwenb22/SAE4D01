@@ -1,75 +1,65 @@
 import sqlite3
 
 def create_database():
-    conn = sqlite3.connect("/backend/plants_management.db")
+    conn = sqlite3.connect("/backend/plantes.db")
     cursor = conn.cursor()
 
     cursor.executescript('''
     PRAGMA foreign_keys = ON;
-    
-    CREATE TABLE IF NOT EXISTS users (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        username TEXT NOT NULL,
+
+    CREATE TABLE IF NOT EXISTS utilisateur (
+        id_utilisateur INTEGER PRIMARY KEY AUTOINCREMENT,
+        nom TEXT NOT NULL,
+        prenom TEXT NOT NULL,
+        tel TEXT,
         email TEXT UNIQUE NOT NULL,
-        password TEXT NOT NULL
+        mdp TEXT NOT NULL,
+        classe TEXT
     );
-    
-    CREATE TABLE IF NOT EXISTS plants (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL,
-        description TEXT,
-        humidity REAL,
-        temperature REAL
+
+    CREATE TABLE IF NOT EXISTS plante (
+        id_plante INTEGER PRIMARY KEY AUTOINCREMENT,
+        nom TEXT NOT NULL,
+        humidite REAL,
+        arrosage TEXT,
+        temperature REAL,
+        info TEXT,
+        impact_environnemental REAL
     );
-    
-    CREATE TABLE IF NOT EXISTS bacs (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL,
-        location TEXT,
-        humidity REAL,
-        temperature REAL
+
+    CREATE TABLE IF NOT EXISTS progression (
+        id_utilisateur INTEGER,
+        general TEXT,
+        arrosage TEXT,
+        desherbage TEXT,
+        heures_passees REAL,
+        PRIMARY KEY (id_utilisateur),
+        FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur) ON DELETE CASCADE
     );
-    
-    CREATE TABLE IF NOT EXISTS plantings (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        user_id INTEGER NOT NULL,
-        plant_id INTEGER NOT NULL,
-        bac_id INTEGER NOT NULL,
-        date_planted TEXT NOT NULL,
-        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-        FOREIGN KEY (plant_id) REFERENCES plants(id) ON DELETE CASCADE,
-        FOREIGN KEY (bac_id) REFERENCES bacs(id) ON DELETE CASCADE
+
+    CREATE TABLE IF NOT EXISTS bac (
+        id_bac INTEGER PRIMARY KEY AUTOINCREMENT
     );
-    
-    CREATE TABLE IF NOT EXISTS user_progress (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        user_id INTEGER NOT NULL,
-        total_plants INTEGER DEFAULT 0,
-        environment_impact REAL DEFAULT 0,
-        last_updated TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+
+    CREATE TABLE IF NOT EXISTS info (
+        id_info INTEGER PRIMARY KEY AUTOINCREMENT,
+        titre TEXT NOT NULL,
+        img TEXT,
+        description TEXT
     );
-    
-    CREATE TABLE IF NOT EXISTS environment_impact (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        user_id INTEGER NOT NULL,
-        co2_saved REAL DEFAULT 0,
-        water_saved REAL DEFAULT 0,
-        biodiversity_score REAL DEFAULT 0,
-        last_updated TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-    );
-    
-    CREATE TABLE IF NOT EXISTS watering_schedule (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        bac_id INTEGER NOT NULL,
-        frequency INTEGER NOT NULL,
-        last_watered TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        next_watering TEXT NOT NULL,
-        FOREIGN KEY (bac_id) REFERENCES bacs(id) ON DELETE CASCADE
+
+    CREATE TABLE IF NOT EXISTS plantation (
+        id_plante INTEGER,
+        id_utilisateur INTEGER,
+        id_bac INTEGER,
+        date_plantation TEXT NOT NULL,
+        PRIMARY KEY (id_plante, id_utilisateur, id_bac),
+        FOREIGN KEY (id_plante) REFERENCES plante(id_plante) ON DELETE CASCADE,
+        FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur) ON DELETE CASCADE,
+        FOREIGN KEY (id_bac) REFERENCES bac(id_bac) ON DELETE CASCADE
     );
     ''')
-    
+
     conn.commit()
     conn.close()
 
