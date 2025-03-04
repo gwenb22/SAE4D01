@@ -46,5 +46,9 @@ def get_environment():
 
 # Ajouter d'autres routes similaires pour les autres entités
 
+@app.route("/")
+def scan():
+    return render_template("scan.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
