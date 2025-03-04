@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import sqlite3
 from flask_cors import CORS
 import os
@@ -14,8 +14,8 @@ def get_db():
 
 # Route de test
 @app.route("/")
-def index():
-    return "🚀 API de gestion des plantes opérationnelle 🌱"
+def scan():
+    return render_template("scan.html")
 
 # Exemples de routes pour les plantes
 @app.route("/plants", methods=["GET"])
@@ -45,10 +45,6 @@ def get_environment():
     return jsonify([dict(record) for record in environment_data])
 
 # Ajouter d'autres routes similaires pour les autres entités
-
-@app.route("/")
-def scan():
-    return render_template("scan.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
