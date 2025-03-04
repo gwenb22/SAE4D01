@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/plants";
+const API_URL = "http://localhost:3000/plants";
 
 // Fonction pour récupérer et afficher les plantes
 async function fetchPlants() {
