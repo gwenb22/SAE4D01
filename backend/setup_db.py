@@ -1,7 +1,7 @@
 import sqlite3
 
 def create_database():
-    conn = sqlite3.connect("plants_management.db")
+    conn = sqlite3.connect("/backend/plants_management.db")
     cursor = conn.cursor()
 
     cursor.executescript('''

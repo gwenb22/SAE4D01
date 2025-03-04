@@ -3,8 +3,11 @@ import json
 import requests
 import logging
 from flask import Flask, render_template, request, redirect, url_for, flash
+import sqlite3
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # Ajoute la gestion des requêtes CORS
 
 # 🔹 Configuration du logger pour le débogage
 logging.basicConfig(level=logging.DEBUG)
@@ -22,6 +25,13 @@ UPLOAD_FOLDER = os.path.join(app.root_path, 'static', 'uploads')
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
+# Connexion à SQLite
+def get_db():
+    conn = sqlite3.connect('./backend/plants_management.db')
+    conn.row_factory = sqlite3.Row
+    return conn
+
+# Route de test
 @app.route("/")
 def scan():
     return render_template("scan.html")
@@ -113,3 +123,35 @@ def validate_plant_data(name, humidity, temperature, watering_frequency):
         errors.append("La fréquence d'arrosage doit être un entier positif.")
 
     return errors  # Renvoie une liste d'erreurs (vide si tout est bon)
+# Exemples de routes pour les plantes
+@app.route("/plants", methods=["GET"])
+def get_plants():
+    conn = get_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM plants")
+    plants = cursor.fetchall()
+    return jsonify([dict(plant) for plant in plants])
+
+# Exemple pour les utilisateurs
+@app.route("/users", methods=["GET"])
+def get_users():
+    conn = get_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM users")
+    users = cursor.fetchall()
+    return jsonify([dict(user) for user in users])
+
+# Exemple pour l'environnement
+@app.route("/environment", methods=["GET"])
+def get_environment():
+    conn = get_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM environment")
+    environment_data = cursor.fetchall()
+    return jsonify([dict(record) for record in environment_data])
+
+# Ajouter d'autres routes similaires pour les autres entités
+
+
+if __name__ == "__main__":
+    app.run(debug=True)

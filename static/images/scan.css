@@ -1,0 +1,77 @@
+/* Changer la couleur de fond */
+body {
+    background-color: #E4C991;
+}
+
+/* Arrondir les bords de l'image, réduire la taille et la centrer */
+img {
+    border-radius: 10px;
+    width: 200px; /* Ajuste la taille de l'image */
+    display: block;
+    margin: 0 auto;
+}
+
+/* Style du bouton */
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Couleur de fond verte */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    font-size: 16px;
+}
+
+/* Changer la couleur du bouton au survol */
+button:hover {
+    background-color: #87945e;
+}
+
+.nav-btn {
+    background-color: #fff;
+    border: 2px solid #94A267;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+nav {
+    display: flex;
+    gap: 10px; /* Ajuste l'espace entre les boutons */
+    align-items: center;
+    margin-top: 20px;
+    padding: 0 10px;
+}
+.nav-btn img {
+    max-width: 400%;
+    max-height: 400%;
+}
+
+.nav-btn:hover {
+    background-color: #94A267;
+    border-color: #94A267;
+}
+
+.nav-btn:focus {
+    outline: none;
+}
+
+.back-button {
+    background-color: #94A267;
+    border: 2px solid #94A267;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
