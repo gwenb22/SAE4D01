@@ -1,6 +1,6 @@
 /* Changer la couleur de fond */
 body {
-    background-color: #E4C991;
+    background-color: #FFF8E6;
 }
 
 /* Arrondir les bords de l'image, réduire la taille et la centrer */
@@ -11,24 +11,41 @@ img {
     margin: 0 auto;
 }
 
-/* Style du bouton */
+/* Style du bouton et du label (remplaçant l'input file) */
 button {
     padding: 10px 20px;
-    background-color: #4CAF50; /* Couleur de fond verte */
+    background-color: #926B55;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    display: block;
+    display: flex; /* Assure que le label prend bien toute la zone */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: fit-content;
     margin: 20px auto;
-    font-size: 16px;
 }
 
-/* Changer la couleur du bouton au survol */
-button:hover {
+/* Changer la couleur du bouton et du label au survol */
+button:hover{
     background-color: #87945e;
 }
 
+/* Masquer l'input file natif */
+#file-input {
+    display: none;
+}
+
+/* Styliser le conteneur du label pour ressembler au bouton */
+.upload-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Style des boutons de navigation */
 .nav-btn {
     background-color: #fff;
     border: 2px solid #94A267;
@@ -41,6 +58,7 @@ button:hover {
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 nav {
     display: flex;
     gap: 10px; /* Ajuste l'espace entre les boutons */
@@ -48,6 +66,7 @@ nav {
     margin-top: 20px;
     padding: 0 10px;
 }
+
 .nav-btn img {
     max-width: 400%;
     max-height: 400%;
@@ -73,5 +92,5 @@ nav {
     align-items: center;
     cursor: pointer;
     transition: all 0.3s ease;
-
 }
+

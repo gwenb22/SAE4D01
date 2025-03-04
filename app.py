@@ -34,19 +34,19 @@ def get_db():
 # Route de test
 @app.route("/")
 def scan():
-    return render_template("scan.html")
+    return render_template("defis.html")
 
 @app.route("/scan_info", methods=["POST"])
 def scan_info():
     if "image" not in request.files:
         flash("Aucune image n'a été envoyée.", "error")
-        return redirect(url_for("scan"))
-
+        return render_template("scan_pas_info.html")
+    
     uploaded_file = request.files["image"]
     
     if uploaded_file.filename == "":
         flash("Aucun fichier sélectionné.", "error")
-        return redirect(url_for("scan"))
+        return render_template("scan_pas_info.html")
 
     try:
         # 🔹 Sauvegarde de l'image dans le dossier uploads
@@ -59,7 +59,7 @@ def scan_info():
 
         if plant_info.get("error"):
             flash(plant_info["error"], "error")
-            return redirect(url_for("scan"))  # Si erreur, revenir à scan.html
+            return render_template("scan_pas_info.html")  # Si erreur, revenir à scan.html
         else:
             # 🔹 Rediriger vers scan_info.html avec les infos de la plante
             return render_template("scan_info.html", plant_info=plant_info, image_path=image_path)
@@ -67,7 +67,7 @@ def scan_info():
     except Exception as e:
         logging.error(f"Erreur lors du traitement de l'image : {e}")
         flash(f"Erreur : {e}", "error")
-        return redirect(url_for("scan"))
+        return render_template("scan_pas_info.html")
 
 
 def identify_plant(image_path):

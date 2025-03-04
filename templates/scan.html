@@ -3,29 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scanner</title>
+    <title>Scanne une plante</title>
     <link rel="stylesheet" href="static/images/scan.css">
 </head>
 <body>
-    <h1>Scanner de Plantes</h1>
+    <h1>Scanne une plante</h1>
     
-    <img src="static/images/fleur.jpeg" alt="Image d'une fleur" id="image-display" style="max-width: 100%; height: auto;">
-
-    <!-- Formulaire pour uploader l'image -->
     <form action="/scan_info" method="POST" enctype="multipart/form-data">
-        <input type="file" name="image" accept="image/*" required>
+        <label for="file-input" class="upload-container">
+            <!-- L'image d'aperçu qui sera mise à jour après la sélection du fichier -->
+            <img id="preview" src="static/images/uploadImage.png" alt="Uploader une image">
+        </label>
+        <input id="file-input" type="file" name="image" accept="image/*" required onchange="previewImage(event)">
+        
         <button type="submit">Analyser la plante</button>
     </form>
-    <button class="back-button">&#8592;</button>
-   <!-- ARRONDIR LES BORDS + REDUIRE LA TAILLE + CENTRER -->
-   <img src="static/images/fleur.jpeg" alt="Image d'une fleur">
-
 
    <nav>
     <button class="nav-btn btn-1"><img src="static/images/loupe.png" alt="Icone 1"></button>
     <button class="nav-btn btn-2"><img src="static/images/map.png" alt="Icone 2"></button>
     <button class="nav-btn btn-3"><img src="static/images/résultats.png" alt="Icone 3"></button>
-</nav>
+   </nav>
+
+   <script>
+      // Fonction pour prévisualiser l'image sélectionnée
+      function previewImage(event) {
+          var file = event.target.files[0];
+          var reader = new FileReader();
+
+          reader.onload = function(e) {
+              // Mettre à jour la source de l'image d'aperçu avec la nouvelle image sélectionnée
+              var preview = document.getElementById("preview");
+              preview.src = e.target.result;
+          };
+
+          if (file) {
+              reader.readAsDataURL(file);  // Lire le fichier comme URL de données
+          }
+      }
+   </script>
 
 </body>
 </html>
