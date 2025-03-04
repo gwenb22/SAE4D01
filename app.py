@@ -2,7 +2,7 @@ import os
 import json
 import requests
 import logging
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 import sqlite3
 from flask_cors import CORS
 
@@ -34,7 +34,7 @@ def get_db():
 # Route de test
 @app.route("/")
 def scan():
-    return render_template("defis.html")
+    return render_template("scan.html")
 
 @app.route("/scan_info", methods=["POST"])
 def scan_info():
@@ -102,28 +102,8 @@ def identify_plant(image_path):
         logging.error(f"Erreur API PlantNet : {e}")
         return {"error": f"Erreur API : {str(e)}"}
 
-if __name__ == "__main__":
-    app.run(debug=True)
+# 🔹 Routes supplémentaires pour les données de la base
 
-
-
-def validate_plant_data(name, humidity, temperature, watering_frequency):
-    errors = []
-
-    if not name or not isinstance(name, str):
-        errors.append("Le nom de la plante est invalide.")
-
-    if not isinstance(humidity, (int, float)) or not (0 <= humidity <= 100):
-        errors.append("L'humidité doit être un nombre entre 0 et 100.")
-
-    if not isinstance(temperature, (int, float)) or not (-50 <= temperature <= 50):
-        errors.append("La température doit être un nombre entre -50 et 50.")
-
-    if not isinstance(watering_frequency, int) or watering_frequency < 0:
-        errors.append("La fréquence d'arrosage doit être un entier positif.")
-
-    return errors  # Renvoie une liste d'erreurs (vide si tout est bon)
-# Exemples de routes pour les plantes
 @app.route("/plants", methods=["GET"])
 def get_plants():
     conn = get_db()
@@ -132,7 +112,6 @@ def get_plants():
     plants = cursor.fetchall()
     return jsonify([dict(plant) for plant in plants])
 
-# Exemple pour les utilisateurs
 @app.route("/users", methods=["GET"])
 def get_users():
     conn = get_db()
@@ -141,17 +120,51 @@ def get_users():
     users = cursor.fetchall()
     return jsonify([dict(user) for user in users])
 
-# Exemple pour l'environnement
-@app.route("/environment", methods=["GET"])
-def get_environment():
+@app.route("/user/<int:user_id>", methods=["GET"])
+def get_user(user_id):
     conn = get_db()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM environment")
-    environment_data = cursor.fetchall()
-    return jsonify([dict(record) for record in environment_data])
+    cursor.execute("SELECT * FROM users WHERE id = ?", (user_id,))
+    user = cursor.fetchone()
+    if user:
+        return jsonify(dict(user))
+    else:
+        return jsonify({"error": "Utilisateur non trouvé"}), 404
 
-# Ajouter d'autres routes similaires pour les autres entités
+@app.route("/user/<int:user_id>/progression", methods=["GET"])
+def get_user_progression(user_id):
+    conn = get_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM progression WHERE id_utilisateur = ?", (user_id,))
+    progression = cursor.fetchone()
+    if progression:
+        return jsonify(dict(progression))
+    else:
+        return jsonify({"error": "Progression non trouvée pour cet utilisateur"}), 404
 
+@app.route("/plantations", methods=["GET"])
+def get_plantations():
+    conn = get_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM plantation")
+    plantations = cursor.fetchall()
+    return jsonify([dict(plantation) for plantation in plantations])
+
+@app.route("/infos", methods=["GET"])
+def get_infos():
+    conn = get_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM info")
+    infos = cursor.fetchall()
+    return jsonify([dict(info) for info in infos])
+
+@app.route("/bac", methods=["GET"])
+def get_bacs():
+    conn = get_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM bac")
+    bacs = cursor.fetchall()
+    return jsonify([dict(bac) for bac in bacs])
 
 if __name__ == "__main__":
     app.run(debug=True)
