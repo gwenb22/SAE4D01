@@ -10,7 +10,7 @@ app.use(express.json()); // Pour lire le JSON dans les requêtes
 app.use(cors()); // Autorise les requêtes cross-origin
 
 // Connexion à la base SQLite
-const db = new sqlite3.Database("./plants.db", (err) => {
+const db = new sqlite3.Database("./plants_management.db", (err) => {
     if (err) console.error("Erreur de connexion à la base:", err);
     else console.log("Connecté à SQLite");
 });
