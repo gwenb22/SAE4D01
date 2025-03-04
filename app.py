@@ -34,7 +34,7 @@ def get_db():
 # Route de test
 @app.route("/")
 def scan():
-    return render_template("scan.html")
+    return render_template("inscription.html")
 
 @app.route("/scan_info", methods=["POST"])
 def scan_info():
@@ -165,6 +165,22 @@ def get_bacs():
     cursor.execute("SELECT * FROM bac")
     bacs = cursor.fetchall()
     return jsonify([dict(bac) for bac in bacs])
+
+# 🔹 Routes pour les pages de connexion et d'inscription
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    if request.method == "POST":
+        # Logique d'inscription (validation, création de l'utilisateur)
+        pass
+    return render_template("inscription.html")
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        # Logique de connexion (vérification des identifiants)
+        pass
+    return render_template("connexion.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
