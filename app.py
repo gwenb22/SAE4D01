@@ -48,7 +48,7 @@ def get_environment():
 
 @app.route("/")
 def scan():
-    return render_template("scan.html")
+    return render_template("defis.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
