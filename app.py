@@ -182,5 +182,9 @@ def login():
         pass
     return render_template("connexion.html")
 
+@app.route('/bacs')
+def bacs():
+    return render_template("bacs.html")
+
 if __name__ == "__main__":
     app.run(debug=True)

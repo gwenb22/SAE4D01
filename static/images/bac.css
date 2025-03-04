@@ -1,0 +1,125 @@
+:root {
+    --vert-principal: #94a267;
+    --beige-clair: #fff8e6;
+    --marron-terre: #926b55;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--vert-principal);
+    color: var(--beige-clair);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.bac-container {
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--vert-principal);
+    padding: 20px;
+}
+
+.bac {
+    background-color: var(--vert-principal);
+    border-radius: 15px;
+}
+
+h1 {
+    text-align: center;
+    color: var(--beige-clair);
+    margin-bottom: 20px;
+}
+
+.plante {
+    background-color: rgba(255, 248, 230, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.plante h2 {
+    color: var(--beige-clair);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.plante-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mesures {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mesures div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mesures span {
+    font-size: 0.8em;
+    color: rgba(255, 248, 230, 0.7);
+}
+
+.mesures strong {
+    color: var(--beige-clair);
+    font-size: 1.2em;
+}
+
+.plante p {
+    color: rgba(255, 248, 230, 0.8);
+    margin: 0;
+    text-align: center;
+}
+
+.bac-controle {
+    background-color: rgba(255, 248, 230, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.bac-controle h3 {
+    color: var(--beige-clair);
+    margin-top: 0;
+}
+
+.bac-controle p {
+    color: rgba(255, 248, 230, 0.8);
+    margin-bottom: 15px;
+}
+
+.arrosage-btn {
+    background-color: var(--beige-clair);
+    color: var(--vert-principal);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.arrosage-btn:hover {
+    background-color: rgba(255, 248, 230, 0.8);
+}
+
+.autres-plantes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+@media (max-width: 400px) {
+    .bac-container {
+        padding: 10px;
+    }
+}
