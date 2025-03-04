@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informations sur la Plante</title>
+</head>
+<body>
+    <h1>Informations sur la plante</h1>
+
+    {% if plant_info %}
+        <p><strong>Nom commun :</strong> {{ plant_info.common_name }}</p>
+        <p><strong>Nom scientifique :</strong> {{ plant_info.scientific_name }}</p>
+        <img src="{{ image_path }}" alt="Image de la plante" width="300">
+    {% else %}
+        <p>Impossible d'afficher les informations.</p>
+    {% endif %}
+
+    <br>
+    <a href="/">Retour à l'accueil</a>
+</body>
+</html>
