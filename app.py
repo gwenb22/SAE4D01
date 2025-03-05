@@ -55,6 +55,10 @@ def create_app():
     @login_manager.user_loader
     def load_user(user_id):
         return DatabaseManager.get_user_by_id(user_id)  # Récupère l'utilisateur par ID
+    
+    @app.route('/scan')
+    def scan():
+        return render_template('scan.html')
 
     # Route de déconnexion
     @app.route('/logout')
@@ -63,6 +67,8 @@ def create_app():
         return redirect(url_for('auth.login'))
 
     return app
+
+
 
 # Configuration du logger
 logging.basicConfig(level=logging.DEBUG)
