@@ -27,7 +27,7 @@ def register():
             if success:
                 logger.info(f"Inscription réussie pour {email}")
                 flash("Inscription réussie.", "success")
-                return render_template('scan.html',)
+                return render_template('accueil.html',)
             else:
                 logger.warning(f"Échec de l'inscription pour {email}: {message}")
                 flash(message, "danger")
@@ -50,10 +50,10 @@ def login():
         if user_data:  # Si l'utilisateur existe
             session['user_email'] = user_data.get('email')
             session['user_name'] = user_data.get('name')  # Stocke le nom de l'utilisateur
-            return render_template('accueil.html', error=message) # Redirection vers la page d'accueil
+            return render_template('accueil.html') # Redirection vers la page d'accueil
         else:
             flash("Utilisateur non trouvé", "danger")
-    return render_template('scan.html')
+    return render_template('connexion.html')
 
 @auth_bp.route('/logout')
 def logout():
