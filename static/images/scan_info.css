@@ -1,0 +1,29 @@
+body {
+    background-color: #FFF8E6;
+    font-family: Poppins;
+    padding : 20px 10px;
+}
+
+h1 {
+    font-family: "DynaPuff", cursive;
+}
+
+/* Style du bouton avec <a> */
+a {
+    display: inline-block;  /* Permet d'ajouter du padding et centrer */
+    padding: 10px 20px;
+    border: 2px solid #94A267;
+    border-radius: 20px; /* Corrigé pour appliquer l’arrondi */
+    background-color: #94A267;
+    color: white;
+    text-decoration: none; /* Supprime le soulignement */
+    text-align: center;
+    transition: background-color 0.3s ease;
+    margin-top: 15px ;
+}
+
+/* Effet au survol */
+a:hover {
+    background-color: #7a854e;
+    border-color: #7a854e;
+}
