@@ -37,12 +37,21 @@ def create_app():
     from routes.bac_routes import bac_bp
     from routes.defis_routes import defis_bp
     from routes.scan_routes import scan_bp
+    from routes.maprogression_routes import maprogression_bp
+    from routes.param_routes import parametre_bp
+    from routes.contact_routes import contact_bp
+    from routes.progression_routes import progression_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(user_bp)
     app.register_blueprint(bac_bp)
     app.register_blueprint(defis_bp)
     app.register_blueprint(scan_bp)
+    app.register_blueprint(maprogression_bp)
+    app.register_blueprint(parametre_bp)
+    app.register_blueprint(contact_bp)
+    app.register_blueprint(progression_bp)
+
 
     # Définition de la route index
     @app.route('/')

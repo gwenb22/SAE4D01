@@ -1,0 +1,97 @@
+/* Changer la couleur de fond */
+body {
+    background-color: #FFF8E6;
+    font-family: "DynaPuff", cursive;
+    margin: 0;
+    padding-bottom: 80px; /* Espace pour ne pas cacher le contenu sous la nav */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Style du titre */
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+/* Image d'aperçu */
+img {
+    border-radius: 10px;
+    width: 200px;
+    display: block;
+    margin: 20px auto;
+}
+
+/* Bouton principal */
+button {
+    padding: 10px 20px;
+    background-color: #926B55;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: fit-content;
+    margin: 20px auto;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #87945e;
+}
+
+/* Masquer l'input file natif */
+#file-input {
+    display: none;
+}
+
+/* Conteneur du label (simulation d'un bouton) */
+.upload-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Barre de navigation fixée en bas */
+nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #94A267;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Boutons de navigation */
+.nav-btn {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Icônes dans les boutons */
+.nav-btn img {
+    max-width: 50%;
+    max-height: 50%;
+}
+
+/* Effet au survol */
+.nav-btn:hover {
+    background-color: #94A267;
+    border-color: #94A267;
+}
