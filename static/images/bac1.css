@@ -1,0 +1,666 @@
+.bac {
+    background-color: #fff8e6;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .bac .div {
+    background-color: #fff8e6;
+    width: 393px;
+    height: 852px;
+    position: relative;
+  }
+  
+  .bac .frame {
+    top: 323px;
+    left: 34px;
+    background-image: url(./img/top-view-ripe-fresh-tomatoes-with-water-drops-black-background-1.png);
+    position: absolute;
+    width: 137px;
+    height: 137px;
+    border: 1px solid;
+    border-color: #94a267;
+    background-size: 100% 100%;
+  }
+  
+  .bac .overlap {
+    position: absolute;
+    width: 202px;
+    height: 133px;
+    top: 326px;
+    left: 187px;
+  }
+  
+  .bac .text-wrapper {
+    position: absolute;
+    width: 65px;
+    top: 0;
+    left: 1px;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+  
+  .bac .text-wrapper-2 {
+    position: absolute;
+    width: 70px;
+    top: 23px;
+    left: 0;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+  
+  .bac .text-wrapper-3 {
+    position: absolute;
+    width: 102px;
+    top: 47px;
+    left: 0;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+  
+  .bac .text-wrapper-4 {
+    position: absolute;
+    width: 32px;
+    top: 0;
+    left: 101px;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    font-weight: 400;
+    color: #94a267;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+  
+  .bac .text-wrapper-5 {
+    position: absolute;
+    width: 62px;
+    top: 46px;
+    left: 103px;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    font-weight: 400;
+    color: #94a267;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+  
+  .bac .droplet {
+    top: 25px;
+    left: 118px;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+  }
+  
+  .bac .img {
+    top: 25px;
+    left: 135px;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+  }
+  
+  .bac .droplet-fill {
+    top: 25px;
+    left: 101px;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+  }
+  
+  .bac .overlap-group {
+    position: absolute;
+    width: 201px;
+    height: 132px;
+    top: 1px;
+    left: 1px;
+  }
+  
+  .bac .p {
+    position: absolute;
+    width: 171px;
+    top: 82px;
+    left: 0;
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 10px;
+    letter-spacing: 0;
+    line-height: 10px;
+  }
+  
+  .bac .group {
+    width: 31px;
+    height: 120px;
+    top: 0;
+    left: 170px;
+    border-radius: 10px;
+    border: 1px solid;
+    border-color: #000000;
+    position: absolute;
+    background-color: #94a267;
+  }
+  
+  .bac .rectangle {
+    height: 75px;
+    top: 40px;
+    position: absolute;
+    width: 15px;
+    left: 7px;
+    background-color: #88d4d8;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: #000000;
+  }
+  
+  .bac .vector {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 4px;
+    left: 7px;
+  }
+  
+  .bac .text-wrapper-6 {
+    position: absolute;
+    width: 72px;
+    top: 61px;
+    left: 161px;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 32px;
+    letter-spacing: 0;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+  
+  .bac .text-wrapper-7 {
+    position: absolute;
+    top: 299px;
+    left: 34px;
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+  
+  .bac .ce-mode-permet-un {
+    position: absolute;
+    width: 270px;
+    top: 232px;
+    left: 62px;
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 10px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 10px;
+  }
+  
+  .bac .text-wrapper-8 {
+    width: 154px;
+    top: 201px;
+    left: 120px;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 10px;
+    position: absolute;
+    color: #000000;
+    letter-spacing: 0;
+  }
+  
+  .bac .frame-2 {
+    top: 505px;
+    left: 33px;
+    background-image: url(./img/purple-round-fruit-green-leaves-1.png);
+    position: absolute;
+    width: 137px;
+    height: 137px;
+    border: 1px solid;
+    border-color: #94a267;
+    background-size: 100% 100%;
+  }
+  
+  .bac .text-wrapper-9 {
+    top: 508px;
+    left: 187px;
+    position: absolute;
+    width: 65px;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+  
+  .bac .text-wrapper-10 {
+    width: 70px;
+    top: 531px;
+    left: 186px;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    white-space: nowrap;
+    position: absolute;
+    color: #000000;
+    letter-spacing: 0;
+  }
+  
+  .bac .text-wrapper-11 {
+    top: 555px;
+    left: 186px;
+    position: absolute;
+    width: 102px;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+  
+  .bac .text-wrapper-12 {
+    top: 508px;
+    position: absolute;
+    width: 32px;
+    left: 288px;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    font-weight: 400;
+    color: #94a267;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+  
+  .bac .text-wrapper-13 {
+    top: 554px;
+    position: absolute;
+    width: 62px;
+    left: 290px;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    font-weight: 400;
+    color: #94a267;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+  
+  .bac .droplet-2 {
+    top: 533px;
+    left: 305px;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+  }
+  
+  .bac .droplet-3 {
+    top: 533px;
+    left: 322px;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+  }
+  
+  .bac .droplet-fill-2 {
+    top: 533px;
+    left: 288px;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+  }
+  
+  .bac .text-wrapper-14 {
+    position: absolute;
+    top: 481px;
+    left: 33px;
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+  
+  .bac .text-wrapper-15 {
+    position: absolute;
+    width: 171px;
+    top: 591px;
+    left: 187px;
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 10px;
+    letter-spacing: 0;
+    line-height: 10px;
+  }
+  
+  .bac .frame-3 {
+    top: 685px;
+    left: 35px;
+    background-image: url(./img/fresh-green-leafs-basil-latin-name-ocimum-basilicum-1.png);
+    position: absolute;
+    width: 137px;
+    height: 137px;
+    border: 1px solid;
+    border-color: #94a267;
+    background-size: 100% 100%;
+  }
+  
+  .bac .text-wrapper-16 {
+    top: 688px;
+    left: 189px;
+    position: absolute;
+    width: 65px;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+  
+  .bac .text-wrapper-17 {
+    width: 70px;
+    top: 711px;
+    left: 188px;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    white-space: nowrap;
+    position: absolute;
+    color: #000000;
+    letter-spacing: 0;
+  }
+  
+  .bac .text-wrapper-18 {
+    top: 735px;
+    left: 188px;
+    position: absolute;
+    width: 102px;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+  
+  .bac .text-wrapper-19 {
+    top: 688px;
+    position: absolute;
+    width: 32px;
+    left: 288px;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    font-weight: 400;
+    color: #94a267;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+  
+  .bac .text-wrapper-20 {
+    top: 734px;
+    position: absolute;
+    width: 62px;
+    left: 290px;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    font-weight: 400;
+    color: #94a267;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+  
+  .bac .droplet-4 {
+    top: 713px;
+    left: 305px;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+  }
+  
+  .bac .droplet-5 {
+    top: 713px;
+    left: 322px;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+  }
+  
+  .bac .droplet-fill-3 {
+    top: 713px;
+    left: 288px;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+  }
+  
+  .bac .text-wrapper-21 {
+    position: absolute;
+    top: 661px;
+    left: 35px;
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+  
+  .bac .text-wrapper-22 {
+    position: absolute;
+    width: 163px;
+    top: 771px;
+    left: 189px;
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 10px;
+    letter-spacing: 0;
+    line-height: 10px;
+  }
+  
+  .bac .bouton-arrosage {
+    position: absolute;
+    width: 88px;
+    height: 88px;
+    top: 101px;
+    left: 153px;
+  }
+  
+  .bac .arrow-down-wrapper {
+    width: 50px;
+    height: 50px;
+    top: 31px;
+    left: 10px;
+    border-radius: 25px;
+    position: absolute;
+    background-color: #94a267;
+  }
+  
+  .bac .arrow-down {
+    position: absolute;
+    width: 33px;
+    height: 33px;
+    top: 8px;
+    left: 8px;
+  }
+  
+  .bac .iphone-XS-bars {
+    position: absolute;
+    width: 336px;
+    height: 17px;
+    top: 9px;
+    left: 29px;
+  }
+  
+  .bac .action {
+    position: absolute;
+    width: 29px;
+    height: 17px;
+    top: 0;
+    left: 0;
+  }
+  
+  .bac .time {
+    position: absolute;
+    width: 27px;
+    top: -1px;
+    left: -1px;
+    -webkit-text-stroke: 1px #707070;
+    font-family: "SF Pro Display-Semibold", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+  
+  .bac .container {
+    position: absolute;
+    width: 60px;
+    height: 12px;
+    top: 2px;
+    left: 276px;
+  }
+  
+  .bac .battery {
+    position: absolute;
+    width: 22px;
+    height: 12px;
+    top: 0;
+    left: 38px;
+    background-image: url(./img/rectangle.svg);
+    background-size: 100% 100%;
+  }
+  
+  .bac .rectangle-2 {
+    position: relative;
+    width: 16px;
+    height: 8px;
+    top: 2px;
+    left: 2px;
+    background-color: #000000;
+    border-radius: 1.6px;
+  }
+  
+  .bac .combined-shape {
+    position: absolute;
+    width: 15px;
+    height: 11px;
+    top: 0;
+    left: 0;
+  }
+  
+  .bac .wi-fi {
+    position: absolute;
+    width: 14px;
+    height: 11px;
+    top: 0;
+    left: 20px;
+  }
+  
+  .bac .group-2 {
+    width: 31px;
+    height: 120px;
+    top: 512px;
+    left: 358px;
+    border-radius: 10px;
+    border: 1px solid;
+    border-color: #000000;
+    position: absolute;
+    background-color: #94a267;
+  }
+  
+  .bac .rectangle-3 {
+    height: 50px;
+    top: 66px;
+    position: absolute;
+    width: 15px;
+    left: 7px;
+    background-color: #88d4d8;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: #000000;
+  }
+  
+  .bac .vector-2 {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 5px;
+    left: 6px;
+  }
+  
+  .bac .group-3 {
+    width: 31px;
+    height: 120px;
+    top: 692px;
+    left: 358px;
+    border-radius: 10px;
+    border: 1px solid;
+    border-color: #000000;
+    position: absolute;
+    background-color: #94a267;
+  }
+  
+  .bac .rectangle-4 {
+    height: 95px;
+    top: 21px;
+    position: absolute;
+    width: 15px;
+    left: 7px;
+    background-color: #88d4d8;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: #000000;
+  }

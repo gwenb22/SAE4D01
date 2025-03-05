@@ -35,6 +35,14 @@ def get_db():
 def defis():
     return render_template("defis.html")
 
+@app.route("/information")
+def information():
+    return render_template("information.html")
+
+@app.route("/bac1")
+def bac1():
+    return render_template("bac1.html")
+
 @app.route("/progression")
 def progression():
     return render_template("progression.html")
