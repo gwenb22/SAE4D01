@@ -31,10 +31,18 @@ def get_db():
     conn.row_factory = sqlite3.Row
     return conn
 
+@app.route("/defis")
+def defis():
+    return render_template("defis.html")
+
+@app.route("/progression")
+def progression():
+    return render_template("progression.html")
+
 # Route de test
 @app.route("/")
 def scan():
-    return render_template("inscription.html")
+    return render_template("scan.html")
 
 @app.route("/scan_info", methods=["POST"])
 def scan_info():
