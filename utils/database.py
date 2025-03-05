@@ -114,3 +114,26 @@ class DatabaseManager:
         except sqlite3.Error as e:
             logger.error(f"Erreur lors de la connexion: {e}")
             return False, f"Erreur de connexion : {str(e)}"
+        
+
+    @staticmethod
+    def get_user_by_email(email):
+        # Exemple d'accès à la base de données (SQLite)
+        conn = sqlite3.connect('./backend/plantes.db')  # Modifiez le chemin selon votre fichier de DB
+        cursor = conn.cursor()
+
+        cursor.execute("SELECT * FROM utilisateur WHERE email = ?", (email,))
+        user = cursor.fetchone()
+
+        conn.close()
+
+        # Si un utilisateur est trouvé, retourne un dictionnaire avec les données
+        if user:
+            return {
+                'id': user[0],  # Supposons que l'ID de l'utilisateur est dans la première colonne
+                'email': user[1],  # Email dans la deuxième colonne
+                'name': user[2]  # Nom dans la troisième colonne (modifiez selon votre schéma)
+            }
+        else:
+            return None  # Aucun utilisateur trouvé
+

@@ -7,16 +7,18 @@ from functools import wraps
 scan_bp = Blueprint('scan', __name__)
 
 # Décorateur de connexion requise
+"""
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if 'email' not in session:
             return redirect('/login')
         return f(*args, **kwargs)
-    return decorated_function
+    return decorated_function 
+"""
 
 @scan_bp.route('/scan')
-@login_required
+# @login_required
 def scan():
     """
     Affiche la page de scan de plantes.
@@ -27,7 +29,7 @@ def scan():
     return render_template('scan.html')
 
 @scan_bp.route('/scan_info', methods=['GET', 'POST'])
-@login_required
+# @login_required
 def scan_info():
     """
     Gère l'identification et l'affichage des informations d'une plante.
@@ -51,22 +53,25 @@ def scan_info():
         os.makedirs(upload_folder, exist_ok=True)
         image_path = os.path.join(upload_folder, uploaded_file.filename)
         uploaded_file.save(image_path)
+        print(f"Image sauvegardée à : {image_path}")  # Débogage
 
         # Validation de l'image
         validation = validate_plant_image(image_path)
+        print(f"Validation de l'image : {validation}")  # Débogage
         if not validation['valid']:
             flash(validation['error'], "error")
             return render_template("scan_pas_info.html")
 
         # Identification de la plante
         plant_info = identify_plant(image_path)
-
+        print(f"Infos de la plante : {plant_info}")  # Débogage
         if plant_info.get("error"):
             flash(plant_info["error"], "error")
             return render_template("scan_pas_info.html")
         
         # Obtenir des recommandations de culture
         care_recommendations = get_plant_care_recommendations(plant_info)
+        print(f"Recommandations de culture : {care_recommendations}")  # Débogage
 
         return render_template(
             "scan_info.html", 
