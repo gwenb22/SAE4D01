@@ -73,7 +73,7 @@ PROJECT = "all"  # Vous pouvez changer en "weurope", "canada", etc.
 PLANTNET_API_URL = f"https://my-api.plantnet.org/v2/identify/{PROJECT}?api-key={PLANTNET_API_KEY}"
 
 # 🔹 Secret key pour les flash messages Flask
-app.secret_key = "secret_key"
+app.secret_key = "secret_key" 
 
 # 🔹 Dossier d'uploads des images
 UPLOAD_FOLDER = os.path.join(app.root_path, 'static', 'uploads')
