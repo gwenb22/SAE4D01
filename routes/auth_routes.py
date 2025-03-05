@@ -19,7 +19,7 @@ def register():
             
             if success:
                 logger.info(f"Inscription réussie pour {email}")
-                return redirect(url_for('auth.login'))
+                return render_template('accueil.html', error=message)
             else:
                 logger.warning(f"Échec de l'inscription pour {email}: {message}")
                 return render_template('inscription.html', error=message)
@@ -41,7 +41,7 @@ def login():
         
         if success:
             session['user_email'] = email
-            return redirect(url_for('index'))  # Redirection vers la page d'accueil
+            return render_template('accueil.html', error=message) # Redirection vers la page d'accueil
         else:
             return render_template('connexion.html', error=message)
     
