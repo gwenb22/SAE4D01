@@ -41,6 +41,8 @@ def create_app():
     from routes.param_routes import parametre_bp
     from routes.contact_routes import contact_bp
     from routes.progression_routes import progression_bp
+    from routes.info_routes import information_bp
+
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(user_bp)
@@ -51,6 +53,7 @@ def create_app():
     app.register_blueprint(parametre_bp)
     app.register_blueprint(contact_bp)
     app.register_blueprint(progression_bp)
+    app.register_blueprint(information_bp)
 
 
     # Définition de la route index
