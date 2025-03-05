@@ -9,6 +9,12 @@
 </head>
 <body>
     <h2>Inscription</h2>
+    {% if error %}
+    <div class="error-message">
+        {{ error }}
+    </div>
+    {% endif %}
+    
     <form action="/register" method="POST">
         <label for="name">Nom Prénom</label>
         <input type="text" id="name" name="name" required><br><br>
