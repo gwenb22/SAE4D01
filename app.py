@@ -34,6 +34,7 @@ def get_db():
 # Route de test
 @app.route("/")
 def scan():
+<<<<<<< Updated upstream
     return render_template("inscription.html")
 
 @app.route("/scan_info", methods=["POST"])
@@ -185,6 +186,9 @@ def login():
 @app.route('/bacs')
 def bacs():
     return render_template("bacs.html")
+=======
+    return render_template("defis.html")
+>>>>>>> Stashed changes
 
 if __name__ == "__main__":
     app.run(debug=True)
