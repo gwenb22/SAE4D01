@@ -33,39 +33,7 @@
             </div>
             
             <div class="autres-plantes">
-                <div class="plante">
-                    <h2>Aubergine</h2>
-                    <div class="plante-details">
-                        <div class="mesures">
-                            <div class="humidite">
-                                <span>Humidité</span>
-                                <strong>62%</strong>
-                            </div>
-                            <div class="temperature">
-                                <span>Température</span>
-                                <strong>18 - 24 C</strong>
-                            </div>
-                        </div>
-                        <p>L'aubergine préfère un sol riche et bien drainé, avec un bon ensoleillement et un arrosage modéré.</p>
-                    </div>
-                </div>
-                
-                <div class="plante">
-                    <h2>Basilic</h2>
-                    <div class="plante-details">
-                        <div class="mesures">
-                            <div class="humidite">
-                                <span>Humidité</span>
-                                <strong>50%</strong>
-                            </div>
-                            <div class="temperature">
-                                <span>Température</span>
-                                <strong>18 - 24 C</strong>
-                            </div>
-                        </div>
-                        <p>Le basilic aime un sol léger et bien drainé, un ensoleillement direct et un arrosage modéré.</p>
-                    </div>
-                </div>
+                <!-- Les autres plantes seront chargées dynamiquement -->
             </div>
             
             <div class="navigation">
@@ -75,6 +43,6 @@
         </section>
     </main>
     
-    <script src="static/js/bacs-navigation.js"></script>
+    <script src="{{ url_for('static', filename='js/bacs-navigation.js') }}"></script>
 </body>
 </html>

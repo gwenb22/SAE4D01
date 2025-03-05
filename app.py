@@ -34,7 +34,7 @@ def create_app():
     # Importation et enregistrement des blueprints
     from routes.auth_routes import auth_bp
     from routes.user_routes import user_bp
-    from routes.bac_routes import bac_bp
+    from routes.bac_routes import bacs_bp
     from routes.defis_routes import defis_bp
     from routes.scan_routes import scan_bp
     from routes.maprogression_routes import maprogression_bp
@@ -44,7 +44,7 @@ def create_app():
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(user_bp)
-    app.register_blueprint(bac_bp)
+    app.register_blueprint(bacs_bp)
     app.register_blueprint(defis_bp)
     app.register_blueprint(scan_bp)
     app.register_blueprint(maprogression_bp)
@@ -64,6 +64,10 @@ def create_app():
     @login_manager.user_loader
     def load_user(user_id):
         return DatabaseManager.get_user_by_id(user_id)  # Récupère l'utilisateur par ID
+    
+    @app.route('/scan')
+    def scan():
+        return render_template('scan.html')
 
     # Route de déconnexion
     @app.route('/logout')
@@ -72,6 +76,8 @@ def create_app():
         return redirect(url_for('auth.login'))
 
     return app
+
+
 
 # Configuration du logger
 logging.basicConfig(level=logging.DEBUG)
