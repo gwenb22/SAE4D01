@@ -8,7 +8,7 @@ def bacs_page():
     return render_template('bacs.html')
 
 @bacs_bp.route('/api/bacs')
-def get_bacs():
+def get_bacs(): 
     try:
         # Connexion à la base de données
         conn = sqlite3.connect("./backend/plantes.db")
