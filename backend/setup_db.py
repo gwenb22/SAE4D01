@@ -1,7 +1,7 @@
 import sqlite3
 
 def create_database():
-    conn = sqlite3.connect("/backend/plantes.db")
+    conn = sqlite3.connect("./backend/plantes.db")
     cursor = conn.cursor()
 
     cursor.executescript('''
@@ -29,10 +29,10 @@ def create_database():
 
     CREATE TABLE IF NOT EXISTS progression (
         id_utilisateur INTEGER,
-        general TEXT,
-        arrosage TEXT,
-        desherbage TEXT,
-        heures_passees REAL,
+        general INTEGER DEFAULT 0,
+        arrosage INTEGER DEFAULT 0,
+        desherbage INTEGER DEFAULT 0,
+        heures_passees REAL DEFAULT 0,
         PRIMARY KEY (id_utilisateur),
         FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur) ON DELETE CASCADE
     );
@@ -63,6 +63,31 @@ def create_database():
     conn.commit()
     conn.close()
 
+def insert_user_progression(id_utilisateur, general=0, arrosage=0, desherbage=0, heures_passees=0):
+    """
+    Inserts or updates user progression in the database.
+    
+    Args:
+        user_id (int): ID of the user
+        general (int, optional): Overall progression out of 100. Defaults to 0.
+        arrosage (int, optional): Watering progression out of 100. Defaults to 0.
+        desherbage (int, optional): Weeding progression out of 100. Defaults to 0.
+        heures_passees (float, optional): Hours spent. Defaults to 0.
+    """
+    conn = sqlite3.connect("./backend/plantes.db")
+    cursor = conn.cursor()
+
+    cursor.execute('''
+    INSERT OR REPLACE INTO progression 
+    (id_utilisateur, general, arrosage, desherbage, heures_passees) 
+    VALUES (?, ?, ?, ?, ?)
+    ''', (id_utilisateur, general, arrosage, desherbage, heures_passees))
+
+    conn.commit()
+    conn.close()
+
 if __name__ == "__main__":
     create_database()
-    print("Base de données créée avec succès !")
+    # Example of inserting progression for a user
+    insert_user_progression(1, 85, 45, 50, 15)
+    print("Base de données créée et progression utilisateur ajoutée avec succès !")

@@ -2,7 +2,7 @@ import os
 import logging
 from flask import Flask, session, redirect, url_for, render_template
 from flask_cors import CORS
-from flask_login import LoginManager, current_user, logout_user
+from flask_login import LoginManager, current_user
 from utils import init_db, DatabaseManager
 
 def create_app():
@@ -14,8 +14,9 @@ def create_app():
     login_manager.init_app(app)
     login_manager.login_view = "auth.login"  # Assurez-vous que cette route existe
 
-    # Configuration de la clé secrète
+    # Configuration de la clé secrète pour maintenir la session
     app.secret_key = os.urandom(24)
+    app.config['SESSION_TYPE'] = 'filesystem'
 
     # Configuration du dossier d'uploads
     UPLOAD_FOLDER = os.path.join(app.root_path, 'static', 'uploads')
@@ -43,7 +44,6 @@ def create_app():
     from routes.progression_routes import progression_bp
     from routes.info_routes import information_bp
 
-
     app.register_blueprint(auth_bp)
     app.register_blueprint(user_bp)
     app.register_blueprint(bacs_bp)
@@ -54,7 +54,6 @@ def create_app():
     app.register_blueprint(contact_bp)
     app.register_blueprint(progression_bp)
     app.register_blueprint(information_bp)
-
 
     # Définition de la route index
     @app.route('/')
@@ -87,11 +86,15 @@ def create_app():
     # Route de déconnexion
     @app.route('/logout')
     def logout():
-        logout_user()
-        return redirect(url_for('auth.login'))
+        return redirect(url_for('auth.logout'))
+    
+    @app.route('/test_session')
+    def test_session():
+        session['test'] = 'Hello'
+        print(session)  # 🔍 Vérifie que la session est bien stockée
+        return "Session testée !"
 
     return app
-
 
 
 # Configuration du logger
