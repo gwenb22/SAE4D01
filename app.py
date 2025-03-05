@@ -34,7 +34,7 @@ def get_db():
 # Route de test
 @app.route("/")
 def scan():
-    return render_template("inscription.html")
+    return render_template("scan.html")
 
 @app.route("/scan_info", methods=["POST"])
 def scan_info():
