@@ -1,0 +1,31 @@
+body {
+    background-color: #FFF8E6;
+    font-family: Poppins;
+    padding : 20px 10px;
+}
+
+h1 {
+    font-family: "DynaPuff", cursive;
+}
+
+.bac{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap : 30px;
+}
+
+.titre{
+    display: flex;
+    flex-direction: column;
+}
+
+.titre h1{
+    font-size: 22px;
+    margin-bottom: -10px;
+}
+
+.titre p{
+    font-size: 16px;
+}

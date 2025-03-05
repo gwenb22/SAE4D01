@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informations sur la Plante</title>
-    <link rel="stylesheet" href="static/images/scan_info.css">
+    <title>Accueil</title>
+
+    <link rel="stylesheet" href="static/accueil.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,17 +16,18 @@
     <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Informations sur la plante</h1>
 
-    {% if plant_info %}
-        <img src="{{ image_path }}" alt="Image de la plante" width="300">
-        <p><strong>Nom commun :</strong> {{ plant_info.common_name }}</p>
-        <p><strong>Nom scientifique :</strong> {{ plant_info.scientific_name }}</p>
-    {% else %}
-        <p>Impossible d'afficher les informations.</p>
-    {% endif %}
+    <div class="titre">
+        <h1>Bienvenue parmi nous!</h1>
+        <p>Cliquez sur un bac pour découvrir les plantes.</p>
+    </div>
 
-    <br>
-    <a href="/">Retour à l'accueil</a>
+
+    <div class="bac">
+        <img src="static/images/bac.png" alt="Bac">
+        <img src="static/images/bac.png" alt="Bac">
+        <img src="static/images/bac.png" alt="Bac">
+    </div>
+    
 </body>
 </html>

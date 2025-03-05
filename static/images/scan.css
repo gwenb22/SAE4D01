@@ -1,17 +1,31 @@
 /* Changer la couleur de fond */
 body {
     background-color: #FFF8E6;
+    font-family: "DynaPuff", cursive;
+    margin: 0;
+    padding-bottom: 80px; /* Espace pour ne pas cacher le contenu sous la nav */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-/* Arrondir les bords de l'image, réduire la taille et la centrer */
+/* Style du titre */
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+/* Image d'aperçu */
 img {
     border-radius: 10px;
-    width: 200px; /* Ajuste la taille de l'image */
+    width: 200px;
     display: block;
-    margin: 0 auto;
+    margin: 20px auto;
 }
 
-/* Style du bouton et du label (remplaçant l'input file) */
+/* Bouton principal */
 button {
     padding: 10px 20px;
     background-color: #926B55;
@@ -19,16 +33,16 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    display: flex; /* Assure que le label prend bien toute la zone */
+    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     width: fit-content;
     margin: 20px auto;
+    transition: background-color 0.3s ease;
 }
 
-/* Changer la couleur du bouton et du label au survol */
-button:hover{
+button:hover {
     background-color: #87945e;
 }
 
@@ -37,7 +51,7 @@ button:hover{
     display: none;
 }
 
-/* Styliser le conteneur du label pour ressembler au bouton */
+/* Conteneur du label (simulation d'un bouton) */
 .upload-container {
     display: flex;
     align-items: center;
@@ -45,11 +59,22 @@ button:hover{
     cursor: pointer;
 }
 
-/* Style des boutons de navigation */
+/* Barre de navigation fixée en bas */
+nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #94A267;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Boutons de navigation */
 .nav-btn {
-    background-color: #fff;
-    border: 2px solid #94A267;
-    border-radius: 50%;
     width: 60px;
     height: 60px;
     display: flex;
@@ -59,38 +84,14 @@ button:hover{
     transition: all 0.3s ease;
 }
 
-nav {
-    display: flex;
-    gap: 10px; /* Ajuste l'espace entre les boutons */
-    align-items: center;
-    margin-top: 20px;
-    padding: 0 10px;
-}
-
+/* Icônes dans les boutons */
 .nav-btn img {
-    max-width: 400%;
-    max-height: 400%;
+    max-width: 50%;
+    max-height: 50%;
 }
 
+/* Effet au survol */
 .nav-btn:hover {
     background-color: #94A267;
     border-color: #94A267;
 }
-
-.nav-btn:focus {
-    outline: none;
-}
-
-.back-button {
-    background-color: #94A267;
-    border: 2px solid #94A267;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
