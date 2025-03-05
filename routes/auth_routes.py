@@ -1,5 +1,8 @@
 from flask import Blueprint, request, render_template, redirect, url_for, session, flash
-from utils.database import DatabaseManager
+from werkzeug.security import check_password_hash, generate_password_hash
+from utils.database import get_db
+from flask_login import current_user
+
 import logging
 
 logger = logging.getLogger(__name__)
@@ -15,44 +18,78 @@ def register():
     if request.method == 'POST':
         try:
             # Récupération des données du formulaire
-            name = request.form['name']
-            phone = request.form['phone']
+            prenom = request.form['prenom']  # Champ prénom
+            nom = request.form['nom']  # Champ nom
+            tel = request.form['tel']
             email = request.form['email']
-            password = request.form['password']
+            mdp = request.form['mdp']
             
-            # Création d'une instance du gestionnaire de base de données
-            db_manager = DatabaseManager()
-            success, message = db_manager.register_user(name, phone, email, password)
+            # Connexion à la base de données
+            db = get_db()
             
-            if success:
-                logger.info(f"Inscription réussie pour {email}")
-                flash("Inscription réussie.", "success")
-                return render_template('accueil.html',)
-            else:
-                logger.warning(f"Échec de l'inscription pour {email}: {message}")
-                flash(message, "danger")
-                
+            # Vérifier si l'email existe déjà
+            existing_user = db.execute('SELECT id_utilisateur FROM utilisateur WHERE email = ?', (email,)).fetchone()
+            if existing_user:
+                flash("Un compte avec cet email existe déjà.", "danger")
+                return render_template('inscription.html')
+
+            # Hasher le mot de passe
+            hashed_password = generate_password_hash(mdp)
+
+            # Insérer l'utilisateur en base de données
+            db.execute('''
+                INSERT INTO utilisateur (prenom, nom, tel, email, mdp) 
+                VALUES (?, ?, ?, ?, ?)
+            ''', (prenom, nom, tel, email, hashed_password))
+            db.commit()
+
+            flash("Inscription réussie. Connectez-vous maintenant.", "success")
+            return redirect(url_for('auth.login'))
+
         except Exception as e:
             logger.error(f"Erreur lors de l'inscription: {e}")
             flash(f"Erreur: {str(e)}", "danger")
     
     return render_template('inscription.html')
 
-# Exemple de fonction de connexion (modification dans routes/auth_routes.py)
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'POST':
-        # Récupération des données utilisateur (cette partie doit retourner un dictionnaire)
-        user_email = request.form['email']
-        user_data = DatabaseManager.get_user_by_email(user_email)  # Assurez-vous que cette méthode renvoie un dictionnaire
+    if current_user.is_authenticated:  # Si l'utilisateur est déjà connecté, rediriger vers la page principale
+        return redirect(url_for('maprogression.maprogression'))  
 
-        # Vérification que l'utilisateur existe
-        if user_data:  # Si l'utilisateur existe
-            session['user_email'] = user_data.get('email')
-            session['user_name'] = user_data.get('name')  # Stocke le nom de l'utilisateur
-            return render_template('accueil.html') # Redirection vers la page d'accueil
+    if request.method == 'POST':  # Vérifier que la méthode est bien POST
+        email = request.form.get('email')
+        mdp = request.form.get('mdp')
+
+        print(f"Tentative de connexion : email={email}, mdp={mdp}")  # Debug
+
+        if not email or not mdp:  # Vérifier si les champs sont vides
+            flash("Veuillez entrer un email et un mot de passe.", "warning")
+            return redirect(url_for('auth.login'))  # Retourner sur la page de login
+
+        db = get_db()
+        user = db.execute('SELECT id_utilisateur, mdp FROM utilisateur WHERE email = ?', (email,)).fetchone()
+
+        if not user:
+            print("Utilisateur non trouvé")
+            flash("Email ou mot de passe incorrect.", "error")
+            return redirect(url_for('auth.login'))
+
+        print(f"Utilisateur trouvé : {user}")  # Debug
+
+        if check_password_hash(user['mdp'], mdp): 
+            session.clear()  
+            session.permanent = True  
+            session['user_id'] = user['id_utilisateur']  
+
+            print("Connexion réussie, session enregistrée :", session)  # Debug
+
+            flash("Connexion réussie.", "success")
+            return redirect(url_for('maprogression.maprogression'))  
         else:
-            flash("Utilisateur non trouvé", "danger")
+            print("Mot de passe incorrect")
+            flash("Email ou mot de passe incorrect.", "error")
+            return redirect(url_for('auth.login'))  # Si mot de passe incorrect, revenir à la page de login
     return render_template('connexion.html')
 
 @auth_bp.route('/logout')
