@@ -1,0 +1,75 @@
+/* Changer la couleur de fond */
+body {
+    background-color: #FFF8E6;
+    font-family: "DynaPuff", cursive;
+    margin: 0;
+    padding-bottom: 80px; /* Espace pour ne pas cacher le contenu sous la nav */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Style du titre */
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+/* Bouton principal */
+button {
+    padding: 10px 20px;
+    background-color: #926B55;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: fit-content;
+    margin: 20px auto;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #87945e;
+}
+
+.group-wrapper {
+    position: fixed; /* Fixé par rapport à la fenêtre */
+    width: 100%; /* Prend toute la largeur */
+    height: 82px; /* Hauteur de la barre */
+    bottom: 0; /* Collé en bas de l'écran */
+    background-color: #94A267; /* Ajoute un fond pour visibilité */
+    display: flex;
+    justify-content: center; /* Centre les icônes horizontalement */
+    align-items: center; /* Centre verticalement */
+    z-index: 1000; /* Assure qu'elle reste au-dessus des autres éléments */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Ombre en haut pour l'effet flottant */
+    z-index: 9999;
+}
+
+.group-8 {
+    display: flex; /* Utilise flexbox */
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    gap: 40px; /* Espacement uniforme entre les icônes */
+}
+
+.group-8 img{
+    width: 76px; /* Taille uniforme */
+    height: 76px;
+    object-fit: cover;
+}
+
+.map {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    background-color: #FFF8E6; /* Fond blanc pour le cercle */
+    border-radius: 50%; /* Rend l'arrière-plan circulaire */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Ajoute une légère ombre */
+}

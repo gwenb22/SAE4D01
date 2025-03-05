@@ -71,6 +71,18 @@ def create_app():
     @app.route('/scan')
     def scan():
         return render_template('scan.html')
+    
+    @app.route('/information')
+    def information():
+        return render_template('information.html')
+    
+    @app.route('/accueil')
+    def accueil():
+        return render_template('accueil.html')
+    
+    @app.route('/defis')
+    def defis():
+        return render_template('defis.html')
 
     # Route de déconnexion
     @app.route('/logout')

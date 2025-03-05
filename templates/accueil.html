@@ -6,6 +6,7 @@
     <title>Accueil</title>
 
     <link rel="stylesheet" href="static/accueil.css">
+    <link rel="stylesheet" href="static/global.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,6 +32,12 @@
 
     <a href="{{ url_for('scan') }}"><img src="{{ url_for('static', filename='images/bouton_scan.png') }}"></a>
 
-    
+    <div class="group-wrapper">
+        <div class="group-8">
+          <a href="{{ url_for('information') }}"><img class="loupe" src="static/images/loupe.png" /></a>
+          <a href="{{ url_for('accueil') }}"><img class="map" src="static/images/map.png" /></a>
+          <a href="{{ url_for('defis') }}"><img class="resultats" src="static/images/re-sultats.png" /></a>
+        </div>
+    </div>
 </body>
 </html>
