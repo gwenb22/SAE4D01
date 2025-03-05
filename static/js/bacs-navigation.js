@@ -1,87 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Tableau des bacs avec leurs détails
-    const bacs = [
-        {
-            id: 1,
-            title: 'Bac 1',
-            plantes: [
-                {
-                    nom: 'Tomate',
-                    humidite: '55%',
-                    temperature: '18 - 24 C',
-                    description: 'La tomate est une plante facile à cultiver dans un potager, appréciant les sols riches et bien ensoleillés.'
-                },
-                {
-                    nom: 'Aubergine',
-                    humidite: '62%',
-                    temperature: '18 - 24 C',
-                    description: 'L\'aubergine préfère un sol riche et bien drainé, avec un bon ensoleillement et un arrosage modéré.'
-                },
-                {
-                    nom: 'Basilic',
-                    humidite: '50%',
-                    temperature: '18 - 24 C',
-                    description: 'Le basilic aime un sol léger et bien drainé, un ensoleillement direct et un arrosage modéré.'
-                }
-            ]
-        },
-        {
-            id: 2,
-            title: 'Bac 2',
-            plantes: [
-                {
-                    nom: 'Concombre',
-                    humidite: '65%',
-                    temperature: '20 - 30 C',
-                    description: 'Le concombre nécessite un sol riche, beaucoup de soleil et un arrosage constant.'
-                },
-                {
-                    nom: 'Poivron',
-                    humidite: '55%',
-                    temperature: '18 - 28 C',
-                    description: 'Le poivron aime les sols riches, bien drainés, avec un bon ensoleillement.'
-                },
-                {
-                    nom: 'Persil',
-                    humidite: '50%',
-                    temperature: '15 - 25 C',
-                    description: 'Le persil apprécie un sol humide, un mi-ombre et un arrosage régulier.'
-                }
-            ]
-        },
-        {
-            id: 3,
-            title: 'Bac 3',
-            plantes: [
-                {
-                    nom: 'Betterave',
-                    humidite: '55%',
-                    temperature: '18 - 24 C',
-                    description: 'La betterave préfère un sol léger et bien drainé, un bon ensoleillement et un arrosage modéré.'
-                },
-                {
-                    nom: 'Carotte',
-                    humidite: '62%',
-                    temperature: '18 - 24 C',
-                    description: 'La carotte se développe dans un sol meuble et bien drainé, avec un ensoleillement direct et un arrosage modéré.'
-                },
-                {
-                    nom: 'Laitue',
-                    humidite: '50%',
-                    temperature: '18 - 24 C',
-                    description: 'La laitue préfère un sol frais et humide, avec un ensoleillement modéré et un arrosage fréquent.'
-                }
-            ]
+    // Fonction pour récupérer les bacs et leurs plantes depuis le serveur
+    async function fetchBacsData() {
+        try {
+            const response = await fetch('/api/bacs');
+            if (!response.ok) {
+                throw new Error('Erreur de récupération des données');
+            }
+            return await response.json();
+        } catch (error) {
+            console.error('Erreur:', error);
+            alert('Impossible de charger les données des bacs');
+            return [];
         }
-    ];
+    }
 
+    // Variables pour la navigation
     const prevBac = document.getElementById('prev-bac');
     const nextBac = document.getElementById('next-bac');
     const bacTitle = document.querySelector('h1');
     const mainPlante = document.querySelector('.plante');
     const autresPlantesContainer = document.querySelector('.autres-plantes');
 
-    let currentBacIndex = 0; // Commence avec Bac 1
+    let bacs = []; // Tableau qui va stocker les données des bacs
+    let currentBacIndex = 0; // Commence avec le premier bac
 
     function updateBacContent(bac) {
         // Mettre à jour le titre du bac
@@ -91,9 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const premierePlante = bac.plantes[0];
         mainPlante.querySelector('h2').textContent = premierePlante.nom;
         const mesuresPrincipales = mainPlante.querySelector('.mesures');
-        mesuresPrincipales.querySelector('.humidite strong').textContent = premierePlante.humidite;
-        mesuresPrincipales.querySelector('.temperature strong').textContent = premierePlante.temperature;
-        mainPlante.querySelector('p').textContent = premierePlante.description;
+        mesuresPrincipales.querySelector('.humidite strong').textContent = `${premierePlante.humidite}%`;
+        mesuresPrincipales.querySelector('.temperature strong').textContent = `${premierePlante.temperature} C`;
+        mainPlante.querySelector('p').textContent = premierePlante.info;
 
         // Mettre à jour les autres plantes
         const autresPlantes = bac.plantes.slice(1);
@@ -108,14 +49,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="mesures">
                         <div class="humidite">
                             <span>Humidité</span>
-                            <strong>${plante.humidite}</strong>
+                            <strong>${plante.humidite}%</strong>
                         </div>
                         <div class="temperature">
                             <span>Température</span>
-                            <strong>${plante.temperature}</strong>
+                            <strong>${plante.temperature} C</strong>
                         </div>
                     </div>
-                    <p>${plante.description}</p>
+                    <p>${plante.info}</p>
                 </div>
             `;
             autresPlantesContainer.appendChild(planteElement);
@@ -133,23 +74,36 @@ document.addEventListener('DOMContentLoaded', () => {
         updateBacContent(bacs[currentBacIndex]);
     }
 
-    // Ajouter des écouteurs d'événements sur les flèches de navigation
-    prevBac.addEventListener('click', (e) => {
-        e.preventDefault();
-        goToPrevBac();
-    });
+    // Initialisation et chargement des données
+    async function initBacs() {
+        bacs = await fetchBacsData();
+        
+        if (bacs.length > 0) {
+            // Ajouter des écouteurs d'événements sur les flèches de navigation
+            prevBac.addEventListener('click', (e) => {
+                e.preventDefault();
+                goToPrevBac();
+            });
 
-    nextBac.addEventListener('click', (e) => {
-        e.preventDefault();
-        goToNextBac();
-    });
+            nextBac.addEventListener('click', (e) => {
+                e.preventDefault();
+                goToNextBac();
+            });
 
-    // Navigation au clavier (optionnel)
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') {
-            goToPrevBac();
-        } else if (e.key === 'ArrowRight') {
-            goToNextBac();
+            // Navigation au clavier (optionnel)
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    goToPrevBac();
+                } else if (e.key === 'ArrowRight') {
+                    goToNextBac();
+                }
+            });
+
+            // Afficher le premier bac
+            updateBacContent(bacs[currentBacIndex]);
         }
-    });
+    }
+
+    // Lancer l'initialisation
+    initBacs();
 });
