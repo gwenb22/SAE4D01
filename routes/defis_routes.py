@@ -5,6 +5,7 @@ from functools import wraps
 defis_bp = Blueprint('defis', __name__)
 
 # Décorateur de connexion requise
+""" 
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -12,9 +13,10 @@ def login_required(f):
             return redirect('/login')
         return f(*args, **kwargs)
     return decorated_function
+"""
 
 @defis_bp.route('/defis')
-@login_required
+# @login_required
 def defis():
     """
     Affiche la page des défis.

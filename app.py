@@ -2,14 +2,17 @@ import os
 import logging
 from flask import Flask, session, redirect, url_for, render_template
 from flask_cors import CORS
+from flask_login import LoginManager, current_user, logout_user
 from utils import init_db, DatabaseManager
-
-# Configuration du logger
-logging.basicConfig(level=logging.DEBUG)
 
 def create_app():
     app = Flask(__name__)
     CORS(app)
+
+    # Initialisation du LoginManager
+    login_manager = LoginManager()
+    login_manager.init_app(app)
+    login_manager.login_view = "auth.login"  # Assurez-vous que cette route existe
 
     # Configuration de la clé secrète
     app.secret_key = os.urandom(24)
@@ -41,14 +44,28 @@ def create_app():
     app.register_blueprint(defis_bp)
     app.register_blueprint(scan_bp)
 
-    # Définition de la route index à l'intérieur de create_app
+    # Définition de la route index
     @app.route('/')
     def index():
-        if 'user_email' not in session:
+        if not current_user.is_authenticated:
             return redirect(url_for('auth.login'))
         return render_template('index.html')
 
+    # Fonction pour charger un utilisateur
+    @login_manager.user_loader
+    def load_user(user_id):
+        return DatabaseManager.get_user_by_id(user_id)  # Récupère l'utilisateur par ID
+
+    # Route de déconnexion
+    @app.route('/logout')
+    def logout():
+        logout_user()
+        return redirect(url_for('auth.login'))
+
     return app
+
+# Configuration du logger
+logging.basicConfig(level=logging.DEBUG)
 
 if __name__ == "__main__":
     app = create_app()
