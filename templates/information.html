@@ -2,9 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informations écologiques</title>
     
-    <link rel="stylesheet" href="static/information.css" />
-    <link rel="stylesheet" href="static/global.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='information.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,90 +16,86 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
+    <style>
+      .article-card {
+        margin-bottom: 20px;
+        position: relative;
+      }
+      
+      .article-image {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+      
+      .article-title {
+        font-weight: bold;
+        margin-top: 10px;
+        font-size: 1.2em;
+      }
+      
+      .article-preview {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+      
+      .voir-plus {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 5px;
+        margin-top: 10px;
+        cursor: pointer;
+      }
+      
+      .information {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      .header-title {
+        font-size: 2em;
+        text-align: center;
+        margin-bottom: 30px;
+        font-family: 'DynaPuff', cursive;
+        color: #2e7d32;
+      }
+    </style>
   </head>
   <body>
     <div class="information">
-      <div class="div">
-        <div class="text-wrapper">Information</div>
-        <img class="small-rotund-resin" src="static/images/abeilleinfo.jpg" />
-        <p class="p">Disparition des pollinisateurs du cassis Noir de Bourgogne.</p>
-        <div class="overlap">
-          <p class="le-document-intitul">
-            <span class="span"
-              >Le document intitulé &#34;Projet Cassis : Approche pluridisciplinaire pour des mesures
-              agro-écologiques&#34; examine l&#39;impact de la disparition des pollinisateurs sauvages sur la production
-              de cassis &#39;Noir de Bourgogne&#39; en Bourgogne-Franche-Comté. Cette disparition a entraîné une baisse
-              significative des rendements agricoles, avec une diminution de 99 % des pollinisateurs en moins de 40 ans.
-            </span>
-            <span class="text-wrapper-2"
-              >Les auteurs suggèrent que la production pourrait potentiellement être triplée si les populations
-            </span>
-          </p>
-          <div class="rectangle"></div>
-          <div class="text-wrapper-3">voir plus</div>
+      <div class="header-title">Information</div>
+      
+      {% if info_data %}
+        {% for article in info_data %}
+        <div class="article-card">
+          <img class="article-image" src="{{ article.img }}" alt="{{ article.titre }}">
+          <div class="article-title">{{ article.titre }}</div>
+          <div class="article-preview">{{ article.description }}</div>
+          <a href="{{ url_for('info.article_detail', article_id=article.id_info) }}" class="voir-plus">voir plus</a>
         </div>
-        <p class="text-wrapper-4">Déforestation et artificialisation des sols.</p>
-        <p class="entre-et">
-          Entre 1990 et 2018, la France métropolitaine a perdu 58 691 hectares de prairies, pelouses et pâturages
-          naturels en raison de l&#39;artificialisation des sols. <br />Cette transformation des espaces naturels en
-          zones urbanisées ou industrielles entraîne une accélération de la perte de biodiversité, une augmentation des
-          risques d&#39;inondation et contribue au réchauffement climatique. <br />Pour contrer ces effets, la loi
-          Climat et Résilience vise un objectif de zéro artificialisation nette des sols d&#39;ici 2050.
-        </p>
-        <div class="overlap-group"><div class="text-wrapper-5">voir plus</div></div>
-        <img class="deforestation-in-the" src="static/images/deforestation.webp" />
-        <div class="text-wrapper-6">Les zones humides</div>
-        <p class="les-zones-humides-de">
-          Les zones humides de France métropolitaine ont perdu environ 64 % de leur surface depuis le début du XXᵉ
-          siècle, avec une accélération notable entre 1960 et 1990.<br />Cette régression, due principalement à
-          l&#39;urbanisation et au drainage des terres, menace la biodiversité et les services écosystémiques associés à
-          ces milieux.
-        </p>
-        <div class="div-wrapper"><div class="text-wrapper-5">voir plus</div></div>
-        <div class="overlap-2">
-          <div class="deforestation-in-the-2"></div>
-          <img class="zh-seuil" src="static/images/france.gif" />
-        </div>
-        <div class="text-wrapper-7">Déclin des chauves-souris</div>
-        <p class="entre-et-2">
-          Entre 2006 et 2021, les populations de chauves-souris les plus communes en France métropolitaine ont diminué
-          de 43 %. Cette tendance générale masque des disparités entre les espèces. Par exemple, la Noctule commune a
-          subi un déclin de près de 88 % entre 2006 et 2019. <br />Les principales causes de ce déclin incluent les
-          collisions avec les éoliennes, qui affectent particulièrement les espèces migratrices volant à haute altitude,
-          telles que la Noctule commune et la Pipistrelle de Nathusius.
-        </p>
-        <div class="overlap-3"><div class="text-wrapper-5">voir plus</div></div>
-        <div class="overlap-4">
-          <div class="deforestation-in-the-3"></div>
-          <img class="unknown" src="static/images/chauves.jpeg" />
-        </div>
-        <div class="text-wrapper-8">Les zones humides</div>
-        <p class="en-france-m">
-          En France métropolitaine, 15 % des espèces de flore sauvage sont menacées d&#39;extinction, soit 742 espèces
-          sur les 4 982 recensées.<br />Cette situation résulte principalement de l&#39;urbanisation, de
-          l&#39;intensification agricole et du changement climatique, qui dégradent les habitats naturels.<br />Parmi
-          les espèces en danger critique figurent la Saxifrage œil-de-bouc et le Panicaut vivipare. <br />Des actions de
-          conservation, telles que des plans nationaux, sont mises en place pour préserver ces plantes menacées.
-        </p>
-        <div class="overlap-5"><div class="text-wrapper-5">voir plus</div></div>
-        <div class="deforestation-in-the-4"></div>
-        <div class="unknown-2"></div>
-        <img class="fleur-squelette" src="static/images/fleur.jpeg"/>
-        <div class="group">
-          <div class="overlap-group-2">
-            <div class="ellipse"></div>
-            <img class="vector" src="img/vector.svg" />
-          </div>
-        </div>
-        <div class="iphone-XS-bars">
-          <div class="action"><div class="time">9:41</div></div>
-          <div class="container">
-            <div class="battery"><div class="rectangle-2"></div></div>
-            <img class="combined-shape" src="img/combined-shape.svg" />
-            <img class="wi-fi" src="img/wi-fi.svg" />
-          </div>
-        </div>
-      </div>
+        {% endfor %}
+      {% else %}
+        <p>Aucune information disponible pour le moment. <a href="{{ url_for('info.add_sample_info') }}">Ajouter des données d'exemple</a></p>
+      {% endif %}
     </div>
+
+    <div class="group-wrapper">
+      <div class="group-8">
+        <a href="{{ url_for('info.index') }}"><img class="loupe" src="static/images/loupe.png" /></a>
+        <a href="{{ url_for('accueil') }}"><img class="map" src="static/images/map.png" /></a>
+        <a href="{{ url_for('defis.defis') }}"><img class="resultats" src="static/images/re-sultats.png" /></a>
+      </div>
+  </div>
+
+
   </body>
 </html>

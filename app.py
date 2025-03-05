@@ -43,6 +43,8 @@ def create_app():
     from routes.contact_routes import contact_bp
     from routes.progression_routes import progression_bp
     from routes.info_routes import information_bp
+    from routes.accueil_routes import accueil_bp
+
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(user_bp)
@@ -54,6 +56,7 @@ def create_app():
     app.register_blueprint(contact_bp)
     app.register_blueprint(progression_bp)
     app.register_blueprint(information_bp)
+    app.register_blueprint(accueil_bp)
 
     # Définition de la route index
     @app.route('/')
@@ -65,28 +68,11 @@ def create_app():
     # Fonction pour charger un utilisateur
     @login_manager.user_loader
     def load_user(user_id):
-        return DatabaseManager.get_user_by_id(user_id)  # Récupère l'utilisateur par ID
-    
-    @app.route('/scan')
-    def scan():
-        return render_template('scan.html')
-    
-    @app.route('/information')
-    def information():
-        return render_template('information.html')
+        return DatabaseManager.get_user_by_id(user_id)
     
     @app.route('/accueil')
     def accueil():
         return render_template('accueil.html')
-    
-    @app.route('/defis')
-    def defis():
-        return render_template('defis.html')
-
-    # Route de déconnexion
-    @app.route('/logout')
-    def logout():
-        return redirect(url_for('auth.logout'))
     
     @app.route('/test_session')
     def test_session():

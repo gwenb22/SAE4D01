@@ -609,3 +609,95 @@
     top: 399px;
     left: 325px;
   }
+
+  /* progression.css */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.progression-details {
+  margin-bottom: 30px;
+}
+
+.progression-item {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.progress-container {
+  width: 100%;
+  height: 20px;
+  background-color: #eee;
+  border-radius: 10px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 10px;
+  background-color: #4CAF50;
+}
+
+.progress-bar-general {
+  background-color: #4CAF50;
+}
+
+.progress-bar-arrosage {
+  background-color: #2196F3;
+}
+
+.progress-bar-desherbage {
+  background-color: #FF9800;
+}
+
+.score {
+  font-weight: bold;
+  text-align: right;
+}
+
+.hours {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.user-info {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.user-info p {
+  margin: 5px 0;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.back-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #388E3C;
+}

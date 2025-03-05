@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ article.titre }}</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <style>
+      .article-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      
+      .article-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      
+      .article-title {
+        font-size: 2em;
+        color: #2e7d32;
+        font-family: 'DynaPuff', cursive;
+        margin-bottom: 20px;
+      }
+      
+      .article-image {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 20px;
+      }
+      
+      .article-content {
+        font-family: 'Open Sans', sans-serif;
+        line-height: 1.6;
+        font-size: 1.1em;
+      }
+      
+      .back-button {
+        display: inline-block;
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="article-container">
+      <div class="article-header">
+        <h1 class="article-title">{{ article.titre }}</h1>
+        <img class="article-image" src="{{ article.img }}" alt="{{ article.titre }}">
+      </div>
+      
+      <div class="article-content">
+        {{ article.description | safe }}
+      </div>
+      
+      <a href="{{ url_for('info.index') }}" class="back-button">Retour aux informations</a>
+
+      
+    </div>
+
+    <div class="group-wrapper">
+      <div class="group-8">
+        <a href="{{ url_for('info.index') }}"><img class="loupe" src="static/images/loupe.png" /></a>
+        <a href="{{ url_for('accueil') }}"><img class="map" src="static/images/map.png" /></a>
+        <a href="{{ url_for('defis.defis') }}"><img class="resultats" src="static/images/re-sultats.png" /></a>
+      </div>
+  </div>
+  </body>
+</html>

@@ -12,100 +12,81 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  
+    <style>
+      /* Style inline pour les barres de progression */
+      {% for user in top_users %}
+        #user-{{ user[0] }}-bar {
+          width: {{ user[3] }}%;
+        }
+      {% endfor %}
+
+      
+    </style>
   </head>
   <body>
-    <div class="progression">
-      <div class="div">
-        <div class="overlap">
-          <div class="ellipse"></div>
-          <div class="rectangle"></div>
-          <div class="text-wrapper">Lilou</div>
-          <div class="div-2"></div>
-          <div class="rectangle-2"></div>
-          <div class="text-wrapper-2">50/100</div>
-          <div class="rectangle-3"></div>
-          <div class="timeo">Nicolas</div>
-          <div class="rectangle-4"></div>
-          <div class="rectangle-5"></div>
-          <div class="text-wrapper-3">40/100</div>
-        </div>
-        <div class="overlap-group">
-          <div class="overlap-2">
-            <div class="overlap-3">
-              <div class="rectangle-6"></div>
-              
-              <div class="overlap-group-wrapper">
-                <div class="overlap-group-2">
-                  <div class="text-wrapper-4">Nicolas</div>
-                  <div class="text-wrapper-5">90/100</div>
-                  <div class="div-2"><div class="rectangle-7"></div></div>
-                </div>
-              </div>
-              <div class="text-wrapper-6">25%</div>
-            </div>
-            <div class="overlap-4">
-              
-              <div class="rectangle-8"></div>
-              <div class="text-wrapper-7">Carole</div>
-              <div class="text-wrapper-8">50%</div>
-            </div>
-            <div class="div-wrapper"><div class="text-wrapper-9">90%</div></div>
+    <div class="container">
+      <h1>Défis</h1>
+      
+      <!-- Podium pour les 3 premiers -->
+      <div class="podium">
+        {% if podium_users|length > 1 %}
+        <div class="podium-place second-place">
+          <div class="user-name">{{ podium_users[1][2] }}</div>
+          <div class="progress-container">
+            <div class="progress-bar silver" style="width: {{ podium_users[1][3] }}%"></div>
           </div>
-          <div class="text-wrapper-10">Lilou</div>
-         
+          <div class="score">{{ podium_users[1][3] }}/100</div>
+          <div>2</div>
         </div>
-        <div class="overlap-5">
-          <div class="text-wrapper-11">Nicolas</div>
-          <div class="overlap-6">
-            <div class="text-wrapper-12">Défis</div>
-            
-          </div>
-        </div>
-        <div class="overlap-7">
-          <div class="text-wrapper">Carole</div>
-          <div class="text-wrapper-13">80/100</div>
-          <div class="div-2"><div class="rectangle-9"></div></div>
-        </div>
-        <div class="overlap-8">
-          <div class="text-wrapper">Gaetan</div>
-          <div class="div-2"><div class="rectangle-10"></div></div>
-          <div class="text-wrapper-14">20/100</div>
-        </div>
-        <div class="overlap-9">
-          <div class="text-wrapper">Tristant</div>
-          <div class="div-2"><div class="rectangle-11"></div></div>
-          <div class="text-wrapper-13">15/100</div>
-        </div>
-       
-        <div class="overlap-10">
-          <img class="vector-2" src="img/vector-2.svg" />
-          <img class="vector-3" src="img/image.svg" />
-          <img class="vector-4" src="img/vector-3.svg" />
-        </div>
+        {% endif %}
         
-        <div class="overlap-wrapper">
-          <div class="overlap-11">
-            <div class="group-6"></div>
-            <img class="group-7" src="static/images/profil.svg" />
+        {% if podium_users|length > 0 %}
+        <div class="podium-place first-place">
+          <div class="user-name">{{ podium_users[0][2] }}</div>
+          <div class="progress-container">
+            <div class="progress-bar gold" style="width: {{ podium_users[0][3] }}%"></div>
           </div>
+          <div class="score">{{ podium_users[0][3] }}/100</div>
+          <div>1</div>
         </div>
-        <div class="rectangle-12"></div>
-        <div class="ellipse-2"></div>
+        {% endif %}
         
-         
-          <div class="container">
-            
-            
+        {% if podium_users|length > 2 %}
+        <div class="podium-place third-place">
+          <div class="user-name">{{ podium_users[2][2] }}</div>
+          <div class="progress-container">
+            <div class="progress-bar bronze" style="width: {{ podium_users[2][3] }}%"></div>
           </div>
+          <div class="score">{{ podium_users[2][3] }}/100</div>
+          <div>3</div>
         </div>
-        <div class="group-wrapper">
-          <div class="group-8">
-            <a href="{{ url_for('information') }}"><img class="loupe" src="static/images/loupe.png" /></a>
-            <a href="{{ url_for('accueil') }}"><img class="map" src="static/images/map.png" /></a>
-            <a href="{{ url_for('defis') }}"><img class="resultats" src="static/images/re-sultats.png" /></a>
-          </div>
+        {% endif %}
       </div>
+    
+      <!-- Version pour le classement des 5 meilleurs -->
+      <h2>Classement</h2>
+
+      {% for user in top_users %}
+      <div class="user-container">
+        <a href="{{ url_for('progression.user_progression', user_id=user[0]) }}" class="user-link">
+          <div class="user-name">{{ loop.index }}. {{ user[2] }} {{ user[1] }}</div>
+        </a>
+        <div class="progress-container">
+          <div class="progress-bar" style="width: {{ user[3] }}%;"></div>
+        </div>
+        <div class="score">{{ user[3] }}/100</div>
       </div>
+      {% endfor %}
     </div>
+
+    <div class="group-wrapper">
+      <div class="group-8">
+        <a href="{{ url_for('info.index') }}"><img class="loupe" src="static/images/loupe.png" /></a>
+        <a href="{{ url_for('accueil') }}"><img class="map" src="static/images/map.png" /></a>
+        <a href="{{ url_for('defis.defis') }}"><img class="resultats" src="static/images/re-sultats.png" /></a>
+      </div>
+  </div>
+  
   </body>
 </html>

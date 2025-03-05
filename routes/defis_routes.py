@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, session, redirect
 from functools import wraps
+from backend.database_functions import get_top_users, get_top_three_users
 
 # Création du blueprint pour les routes de défis
 defis_bp = Blueprint('defis', __name__)
@@ -22,6 +23,12 @@ def defis():
     Affiche la page des défis.
     
     Returns:
-        Rendu du template defis.html
+        Rendu du template defis.html avec les données des meilleurs utilisateurs
     """
-    return render_template('defis.html')
+    # Récupérer les 5 meilleurs utilisateurs
+    top_users = get_top_users(5)
+    
+    # Récupérer les 3 utilisateurs du podium
+    podium_users = get_top_three_users()
+    
+    return render_template('defis.html', top_users=top_users, podium_users=podium_users)

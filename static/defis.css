@@ -1536,3 +1536,88 @@
   justify-content: space-around; /* Répartit l'espace entre les éléments */
   width: 100%;
 }
+
+/* Style simple pour les jauges de progression */
+
+/* Conteneur de la jauge */
+.progress-container {
+  width: 100%;
+  height: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  margin: 5px 0;
+  overflow: hidden;
+}
+
+/* Barre de progression */
+.progress-bar {
+  height: 100%;
+  background-color: #4CAF50;
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Couleurs spécifiques pour le podium */
+.gold {
+  background-color: #FFD700;
+}
+
+.silver {
+  background-color: #C0C0C0;
+}
+
+.bronze {
+  background-color: #CD7F32;
+}
+
+/* Style pour le score */
+.score {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+/* Style pour le nom d'utilisateur */
+.user-name {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* Conteneur pour chaque utilisateur */
+.user-container {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+/* Style pour le podium */
+.podium {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 20px 0;
+  height: 200px;
+}
+
+.podium-place {
+  text-align: center;
+  margin: 0 10px;
+}
+
+.first-place {
+  height: 100%;
+  width: 100px;
+  background-color: #f9f9f9;
+}
+
+.second-place {
+  height: 70%;
+  width: 100px;
+  background-color: #f9f9f9;
+}
+
+.third-place {
+  height: 50%;
+  width: 100px;
+  background-color: #f9f9f9;
+}

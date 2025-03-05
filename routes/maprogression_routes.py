@@ -38,4 +38,16 @@ def maprogression():
         'heures_passees': progression[3] if progression else 0
     }
     
+    # Assurez-vous que les valeurs sont des nombres valides pour les jauges
+    for key in progression_data:
+        # Convertir en nombre si ce n'est pas déjà le cas
+        try:
+            progression_data[key] = float(progression_data[key])
+        except (TypeError, ValueError):
+            progression_data[key] = 0
+            
+        # Limiter entre 0 et 100 pour general, arrosage et desherbage
+        if key != 'heures_passees':
+            progression_data[key] = max(0, min(100, progression_data[key]))
+            
     return render_template("maprogression.html", progression=progression_data)

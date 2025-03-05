@@ -1,106 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-   
-    <link rel="stylesheet" href="static/progression.css" />
-    <link rel="stylesheet" href="static/global.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div class="progression-nicolas">
-      <div class="div">
-        <div class="overlap">
-          <div class="ellipse"></div>
-          <div class="ellipse-2"></div>
-          <img class="arrow-down" src="static/images/retour.png" />
-          <img class="group" src="static/images/tomate.png" />
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='progression.css') }}" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Styles spécifiques pour les barres de progression */
+    .progress-bar-general { width: {{ progression[0] }}%; }
+    .progress-bar-arrosage { width: {{ progression[1] }}%; }
+    .progress-bar-desherbage { width: {{ progression[2] }}%; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Progression de {{ user[2] }} {{ user[1] }}</h1>
+    
+    <div class="progression-details">
+      <div class="progression-item">
+        <h3>Progression générale</h3>
+        <div class="progress-container">
+          <div class="progress-bar progress-bar-general"></div>
         </div>
-        <div class="text-wrapper">Nom:</div>
-        <div class="text-wrapper-2">Nicolas</div>
-        <div class="text-wrapper-3">Robert</div>
-        <div class="text-wrapper-4">MMI2</div>
-        <div class="text-wrapper-5">Prénom:</div>
-        <div class="text-wrapper-6">Classe:</div>
-        <div class="overlap-group">
-          <div class="text-wrapper-7">Nicolas</div>
-          <div class="overlap-2">
-            <div class="rectangle"></div>
-            <div class="text-wrapper-8">75/100</div>
-          </div>
-          <div class="overlap-wrapper">
-            <div class="star-wrapper"><img class="star" src="static/images/etoile.png" /></div>
-          </div>
+        <div class="score">{{ progression[0] }}/100</div>
+      </div>
+      
+      <div class="progression-item">
+        <h3>Arrosage</h3>
+        <div class="progress-container">
+          <div class="progress-bar progress-bar-arrosage"></div>
         </div>
-        <div class="overlap-3">
-          <div class="rectangle-2"></div>
-          <div class="rectangle-3"></div>
-          <div class="text-wrapper-9">45/100</div>
-          <div class="overlap-group-wrapper">
-            <div class="img-wrapper"><img class="img" src="static/images/etoile.png" /></div>
-          </div>
+        <div class="score">{{ progression[1] }}/100</div>
+      </div>
+      
+      <div class="progression-item">
+        <h3>Désherbage</h3>
+        <div class="progress-container">
+          <div class="progress-bar progress-bar-desherbage"></div>
         </div>
-        <div class="text-wrapper-10">Arrosage</div>
-        <div class="overlap-4">
-          <div class="text-wrapper-11">Désherbage</div>
-          <div class="overlap-5">
-            <div class="rectangle-4"></div>
-            <div class="rectangle-4"></div>
-            <div class="rectangle-5"></div>
-            <img class="dash" src="static/images/moinpicto.svg" />
-            <div class="text-wrapper-12">50/100</div>
-            <div class="group-2">
-              <div class="overlap-6"><img class="img" src="static/images/etoile.png" /></div>
-            </div>
-          </div>
-          <img class="plus" src="static/images/pluspicto.svg" />
-        </div>
-        <div class="overlap-7">
-          <div class="text-wrapper-13">Nombre d’heures passées</div>
-          <div class="overlap-8">
-            <div class="rectangle-6"></div>
-            <div class="rectangle-6"></div>
-            <div class="rectangle-7"></div>
-            <img class="dash" src="static/images/moinpicto.svg" />
-            <div class="text-wrapper-14">15/100</div>
-            <div class="group-3">
-              <div class="overlap-9"><img class="img" src="static/images/etoile.png" /></div>
-            </div>
-          </div>
-          <img class="plus" src="static/images/pluspicto.svg" />
-        </div>
-        <div class="overlap-10">
-          <div class="text-wrapper-11">Désherbage</div>
-          <div class="overlap-8">
-            <div class="rectangle-6"></div>
-            <div class="rectangle-6"></div>
-            <div class="rectangle-8"></div>
-            <img class="dash" src="static/images/moinpicto.svg" />
-            <div class="text-wrapper-12">75/100</div>
-            <div class="group-3">
-              <div class="overlap-11"><img class="img" src="static/images/etoile.png" /></div>
-            </div>
-          </div>
-          <img class="plus" src="static/images/pluspicto.svg" />
-        </div>
-        <div class="iphone-XS-bars">
-        
-          <div class="container">
-           
-            <img class="combined-shape" src="img/combined-shape.svg" />
-            <img class="wi-fi" src="img/wi-fi.svg" />
-          </div>
-        </div>
-        <img class="dash-2" src="static/images/moinpicto.svg" />
-        <img class="plus-2" src="static/images/pluspicto.svg" />
+        <div class="score">{{ progression[2] }}/100</div>
+      </div>
+      
+      <div class="progression-item">
+        <h3>Heures passées</h3>
+        <div class="hours">{{ progression[3] }} heures</div>
       </div>
     </div>
-  </body>
+    
+    <div class="user-info">
+      <h2>Informations</h2>
+      <p><strong>Nom:</strong> {{ user[1] }}</p>
+      <p><strong>Prénom:</strong> {{ user[2] }}</p>
+      {% if user[4] %}
+      <p><strong>Classe:</strong> {{ user[4] }}</p>
+      {% endif %}
+    </div>
+    
+    <div class="navigation">
+      <a href="{{ url_for('defis.defis') }}" class="back-button">Retour au classement</a>
+    </div>
+
+    <div class="group-wrapper">
+      <div class="group-8">
+        <a href="{{ url_for('info.index') }}"><img class="loupe" src="static/images/loupe.png" /></a>
+        <a href="{{ url_for('accueil') }}"><img class="map" src="static/images/map.png" /></a>
+        <a href="{{ url_for('defis.defis') }}"><img class="resultats" src="static/images/re-sultats.png" /></a>
+      </div>
+  </div>
+  </div>
+</body>
 </html>

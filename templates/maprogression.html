@@ -13,7 +13,42 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-
+    <style>
+      /* Styles pour les jauges de progression */
+      .jauge-container {
+        width: 100%;
+        height: 20px;
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        margin-top: 5px;
+        overflow: hidden;
+        position: relative;
+      }
+      
+      .jauge-remplissage {
+        height: 100%;
+        background-color: #4CAF50; /* Vert */
+        border-radius: 10px;
+        transition: width 1s ease-in-out;
+      }
+      
+      /* Couleurs différentes pour chaque type de progression */
+      .jauge-general .jauge-remplissage {
+        background-color: #4CAF50; /* Vert */
+      }
+      
+      .jauge-arrosage .jauge-remplissage {
+        background-color: #2196F3; /* Bleu */
+      }
+      
+      .jauge-desherbage .jauge-remplissage {
+        background-color: #FF9800; /* Orange */
+      }
+      
+      .jauge-heures .jauge-remplissage {
+        background-color: #9C27B0; /* Violet */
+      }
+    </style>
   </head>
   <body>
     <div class="prog-perso">
@@ -47,18 +82,26 @@
           <div class="rectangle-3"></div>
           <div class="rectangle-4"></div>
           <img class="group-3" src="static/images/profil.svg" />
-          <div class="text-wrapper-2">{{ progression.progression_generale }}/100</div>
+          <div class="text-wrapper-2">{{ progression.general }}/100</div>
           <div class="overlap-wrapper">
             <div class="star-wrapper"><img class="star" src="static/images/etoile.png" /></div>
+          </div>
+          <!-- Ajout de la jauge générale -->
+          <div class="jauge-container jauge-general">
+            <div class="jauge-remplissage" style="width: {{ progression.general }}%;"></div>
           </div>
         </div>
 
         <div class="overlap-3">
           <div class="rectangle-5"></div>
           <div class="rectangle-6"></div>
-          <div class="text-wrapper-4">{{ progression.progression_arrosage }}/100</div>
+          <div class="text-wrapper-4">{{ progression.arrosage }}/100</div>
           <div class="overlap-group-wrapper">
             <div class="img-wrapper"><img class="star-2" src="static/images/etoile.png" /></div>
+          </div>
+          <!-- Ajout de la jauge arrosage -->
+          <div class="jauge-container jauge-arrosage">
+            <div class="jauge-remplissage" style="width: {{ progression.arrosage }}%;"></div>
           </div>
         </div>
         <div class="text-wrapper-5">Arrosage</div>
@@ -66,9 +109,13 @@
         <div class="overlap-4">
           <div class="rectangle-5"></div>
           <div class="rectangle-7"></div>
-          <div class="text-wrapper-4">{{ progression.progression_desherbage }}/100</div>
+          <div class="text-wrapper-4">{{ progression.desherbage }}/100</div>
           <div class="overlap-group-wrapper">
             <div class="overlap-5"><img class="star-2" src="static/images/etoile.png"/></div>
+          </div>
+          <!-- Ajout de la jauge désherbage -->
+          <div class="jauge-container jauge-desherbage">
+            <div class="jauge-remplissage" style="width: {{ progression.desherbage }}%;"></div>
           </div>
         </div>
         <div class="text-wrapper-6">Désherbage</div>
@@ -83,9 +130,30 @@
             <div class="group-4">
               <div class="overlap-8"><img class="star-2" src="static/images/etoile.png" /></div>
             </div>
+            <!-- Ajout de la jauge heures passées -->
+            <div class="jauge-container jauge-heures">
+              <!-- Ici nous limitons à 100% maximum pour l'affichage -->
+              <div class="jauge-remplissage" style="width: {{ [progression.heures_passees, 100]|min }}%;"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="group-wrapper">
+      <div class="group-8">
+        <a href="{{ url_for('info.index') }}"><img class="loupe" src="static/images/loupe.png" /></a>
+        <a href="{{ url_for('accueil') }}"><img class="map" src="static/images/map.png" /></a>
+        <a href="{{ url_for('defis.defis') }}"><img class="resultats" src="static/images/re-sultats.png" /></a>
+      </div>
+  </div>
+
+    <!-- Script pour animer les jauges lors du chargement de la page -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // L'animation est gérée par le CSS transition
+        console.log("Jauges de progression initialisées");
+      });
+    </script>
   </body>
 </html>

@@ -36,11 +36,13 @@
     </form>
     
 
-   <nav>
-    <button class="nav-btn btn-1"><img src="static/images/loupe.png" alt="Icone 1"></button>
-    <button class="nav-btn btn-2"><img src="static/images/map.png" alt="Icone 2"></button>
-    <button class="nav-btn btn-3"><img src="static/images/résultats.png" alt="Icone 3"></button>
-   </nav>
+    <div class="group-wrapper">
+        <div class="group-8">
+          <a href="{{ url_for('info.index') }}"><img class="loupe" src="static/images/loupe.png" /></a>
+          <a href="{{ url_for('accueil') }}"><img class="map" src="static/images/map.png" /></a>
+          <a href="{{ url_for('defis.defis') }}"><img class="resultats" src="static/images/re-sultats.png" /></a>
+        </div>
+    </div>
 
    <script>
       // Fonction pour prévisualiser l'image sélectionnée

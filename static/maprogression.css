@@ -650,3 +650,53 @@
   width: 25px;
   height: 25px;
 }
+
+/* Styles pour les jauges de progression */
+.jauge-container {
+  width: 90%;
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  margin: 10px auto 5px auto;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.jauge-remplissage {
+  height: 100%;
+  width: 0; /* Commence à 0 pour l'animation */
+  border-radius: 10px;
+  transition: width 1s ease-in-out;
+}
+
+/* Couleurs différentes pour chaque type de progression */
+.jauge-general .jauge-remplissage {
+  background: linear-gradient(to right, #43a047, #66bb6a);
+}
+
+.jauge-arrosage .jauge-remplissage {
+  background: linear-gradient(to right, #1976d2, #42a5f5);
+}
+
+.jauge-desherbage .jauge-remplissage {
+  background: linear-gradient(to right, #ef6c00, #ffa726);
+}
+
+.jauge-heures .jauge-remplissage {
+  background: linear-gradient(to right, #7b1fa2, #ba68c8);
+}
+
+/* Effet brillant sur les jauges */
+.jauge-remplissage::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, 
+                              rgba(255, 255, 255, 0.3) 0%, 
+                              rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+}

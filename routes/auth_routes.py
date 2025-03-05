@@ -85,7 +85,7 @@ def login():
             print("Connexion réussie, session enregistrée :", session)  # Debug
 
             flash("Connexion réussie.", "success")
-            return redirect(url_for('maprogression.maprogression'))  
+            return redirect(url_for('accueil.accueil'))  
         else:
             print("Mot de passe incorrect")
             flash("Email ou mot de passe incorrect.", "error")

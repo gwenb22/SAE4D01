@@ -137,3 +137,69 @@ class DatabaseManager:
         else:
             return None  # Aucun utilisateur trouvé
 
+    @staticmethod
+    def get_all_info():
+        """
+        Récupère toutes les informations de la table 'info'
+        
+        Returns:
+            list: Liste de dictionnaires contenant les informations
+        """
+        conn = sqlite3.connect("./backend/plantes.db")
+        conn.row_factory = sqlite3.Row  # Pour obtenir les résultats sous forme de dictionnaires
+        cursor = conn.cursor()
+        
+        cursor.execute('SELECT * FROM info')
+        results = [dict(row) for row in cursor.fetchall()]
+        
+        conn.close()
+        return results
+
+    @staticmethod
+    def get_info_by_id(info_id):
+        """
+        Récupère les informations d'un article spécifique
+        
+        Args:
+            info_id (int): ID de l'information à récupérer
+            
+        Returns:
+            dict: Dictionnaire contenant les informations de l'article
+        """
+        conn = sqlite3.connect("./backend/plantes.db")
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        
+        cursor.execute('SELECT * FROM info WHERE id_info = ?', (info_id,))
+        result = cursor.fetchone()
+        
+        conn.close()
+        
+        if result:
+            return dict(result)
+        return None
+        
+    @staticmethod
+    def get_user_by_id(user_id):
+        """
+        Récupère un utilisateur par son ID
+        
+        Args:
+            user_id (int): ID de l'utilisateur
+            
+        Returns:
+            dict: Informations de l'utilisateur ou None si non trouvé
+        """
+        conn = sqlite3.connect("./backend/plantes.db")
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        
+        cursor.execute('SELECT * FROM utilisateur WHERE id_utilisateur = ?', (user_id,))
+        user = cursor.fetchone()
+        
+        conn.close()
+        
+        if user:
+            return dict(user)
+        return None
+
