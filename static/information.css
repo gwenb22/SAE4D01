@@ -1,0 +1,468 @@
+.information {
+    background-color: #fff8e6;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .information .div {
+    background-color: #fff8e6;
+    width: 393px;
+    height: 2736px;
+    position: relative;
+  }
+  
+  .information .text-wrapper {
+    position: absolute;
+    width: 180px;
+    top: 59px;
+    left: 107px;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    font-weight: 400;
+    color: #1d1d1b;
+    font-size: 32px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+  
+  .information .small-rotund-resin {
+    position: absolute;
+    width: 270px;
+    height: 180px;
+    top: 159px;
+    left: 62px;
+    object-fit: cover;
+  }
+  
+  .information .p {
+    position: absolute;
+    width: 290px;
+    top: 114px;
+    left: 52px;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    font-weight: 400;
+    color: #1d1d1b;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 18px;
+  }
+  
+  .information .overlap {
+    position: absolute;
+    width: 312px;
+    height: 238px;
+    top: 346px;
+    left: 41px;
+  }
+  
+  .information .le-document-intitul {
+    position: absolute;
+    width: 312px;
+    top: 0;
+    left: 0;
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: transparent;
+    font-size: 13px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 20px;
+  }
+  
+  .information .span {
+    color: #000000;
+  }
+  
+  .information .text-wrapper-2 {
+    color: #00000054;
+  }
+  
+  .information .rectangle {
+    position: absolute;
+    width: 120px;
+    height: 35px;
+    top: 203px;
+    left: 96px;
+    background-color: #94a267;
+    border-radius: 13px;
+  }
+  
+  .information .text-wrapper-3 {
+    position: absolute;
+    top: 210px;
+    left: 127px;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    font-weight: 400;
+    color: #fff8e6;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 20px;
+    white-space: nowrap;
+  }
+  
+  .information .text-wrapper-4 {
+    position: absolute;
+    width: 290px;
+    top: 612px;
+    left: 52px;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    font-weight: 400;
+    color: #1d1d1b;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 18px;
+  }
+  
+  .information .entre-et {
+    position: absolute;
+    width: 312px;
+    top: 845px;
+    left: 41px;
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 13px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 20px;
+  }
+  
+  .information .overlap-group {
+    position: absolute;
+    width: 120px;
+    height: 35px;
+    top: 1086px;
+    left: 137px;
+    background-color: #94a267;
+    border-radius: 13px;
+  }
+  
+  .information .text-wrapper-5 {
+    position: absolute;
+    top: 7px;
+    left: 31px;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    font-weight: 400;
+    color: #fff8e6;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 20px;
+    white-space: nowrap;
+  }
+  
+  .information .deforestation-in-the {
+    position: absolute;
+    width: 286px;
+    height: 180px;
+    top: 658px;
+    left: 52px;
+    object-fit: cover;
+  }
+  
+  .information .text-wrapper-6 {
+    position: absolute;
+    width: 290px;
+    top: 1175px;
+    left: 52px;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    font-weight: 400;
+    color: #1d1d1b;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 18px;
+  }
+  
+  .information .les-zones-humides-de {
+    width: 312px;
+    top: 1399px;
+    left: 41px;
+    font-family: "Poppins-Regular", Helvetica;
+    color: #000000;
+    font-size: 13px;
+    line-height: 20px;
+    position: absolute;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0;
+  }
+  
+  .information .div-wrapper {
+    position: absolute;
+    width: 120px;
+    height: 35px;
+    top: 1568px;
+    left: 137px;
+    background-color: #94a267;
+    border-radius: 13px;
+  }
+  
+  .information .overlap-2 {
+    position: absolute;
+    width: 286px;
+    height: 192px;
+    top: 1206px;
+    left: 52px;
+  }
+  
+  .information .deforestation-in-the-2 {
+    top: 6px;
+    left: 0;
+    position: absolute;
+    width: 286px;
+    height: 180px;
+    border-radius: 27px;
+  }
+  
+  .information .zh-seuil {
+    position: absolute;
+    width: 192px;
+    height: 192px;
+    top: 0;
+    left: 49px;
+    object-fit: cover;
+  }
+  
+  .information .text-wrapper-7 {
+    position: absolute;
+    width: 290px;
+    top: 1654px;
+    left: 52px;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    font-weight: 400;
+    color: #1d1d1b;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 18px;
+  }
+  
+  .information .entre-et-2 {
+    position: absolute;
+    width: 312px;
+    top: 1881px;
+    left: 41px;
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 13px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 20px;
+  }
+  
+  .information .overlap-3 {
+    position: absolute;
+    width: 120px;
+    height: 35px;
+    top: 2130px;
+    left: 137px;
+    background-color: #94a267;
+    border-radius: 13px;
+  }
+  
+  .information .overlap-4 {
+    position: absolute;
+    width: 286px;
+    height: 183px;
+    top: 1691px;
+    left: 52px;
+  }
+  
+  .information .deforestation-in-the-3 {
+    top: 3px;
+    left: 0;
+    position: absolute;
+    width: 286px;
+    height: 180px;
+    border-radius: 27px;
+  }
+  
+  .information .unknown {
+    position: absolute;
+    top: 0;
+    left: 7px;
+    object-fit: cover;
+    width: 275px;
+    height: 183px;
+  }
+  
+  .information .text-wrapper-8 {
+    width: 290px;
+    top: 2225px;
+    left: 52px;
+    font-family: "GiuliaPlain-Regular-☞", Helvetica;
+    color: #1d1d1b;
+    font-size: 20px;
+    line-height: 18px;
+    position: absolute;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0;
+  }
+  
+  .information .en-france-m {
+    position: absolute;
+    width: 312px;
+    top: 2443px;
+    left: 41px;
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 13px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 20px;
+  }
+  
+  .information .overlap-5 {
+    position: absolute;
+    width: 120px;
+    height: 35px;
+    top: 2692px;
+    left: 137px;
+    background-color: #94a267;
+    border-radius: 13px;
+  }
+  
+  .information .deforestation-in-the-4 {
+    top: 2256px;
+    left: 52px;
+    position: absolute;
+    width: 286px;
+    height: 180px;
+    border-radius: 27px;
+  }
+  
+  .information .unknown-2 {
+    position: fixed;
+    top: 2253px;
+    left: 59px;
+    border-radius: 27px;
+    width: 275px;
+    height: 183px;
+  }
+  
+  .information .fleur-squelette {
+    position: fixed;
+    width: 255px;
+    height: 191px;
+    top: 2250px;
+    left: 69px;
+    object-fit: cover;
+  }
+  
+  .information .group {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    top: 31px;
+    left: 10px;
+  }
+  
+  .information .overlap-group-2 {
+    position: relative;
+    height: 50px;
+    border-radius: 25px;
+  }
+  
+  .information .ellipse {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: 0;
+    background-color: #94a267;
+    border-radius: 25px;
+  }
+  
+  .information .vector {
+    position: absolute;
+    width: 29px;
+    height: 19px;
+    top: 16px;
+    left: 11px;
+  }
+  
+  .information .iphone-XS-bars {
+    position: fixed;
+    width: 336px;
+    height: 17px;
+    top: 9px;
+    left: 29px;
+  }
+  
+  .information .action {
+    position: absolute;
+    width: 29px;
+    height: 17px;
+    top: 0;
+    left: 0;
+  }
+  
+  .information .time {
+    position: absolute;
+    width: 27px;
+    top: -1px;
+    left: -1px;
+    -webkit-text-stroke: 1px #707070;
+    font-family: "SF Pro Display-Semibold", Helvetica;
+    font-weight: 400;
+    color: #1d1d1b;
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+  
+  .information .container {
+    position: absolute;
+    width: 60px;
+    height: 12px;
+    top: 2px;
+    left: 276px;
+  }
+  
+  .information .battery {
+    position: absolute;
+    width: 22px;
+    height: 12px;
+    top: 0;
+    left: 38px;
+    background-image: url(./img/rectangle.svg);
+    background-size: 100% 100%;
+  }
+  
+  .information .rectangle-2 {
+    position: relative;
+    width: 16px;
+    height: 8px;
+    top: 2px;
+    left: 2px;
+    background-color: #1d1d1b;
+    border-radius: 1.6px;
+  }
+  
+  .information .combined-shape {
+    position: absolute;
+    width: 15px;
+    height: 11px;
+    top: 0;
+    left: 0;
+  }
+  
+  .information .wi-fi {
+    position: absolute;
+    width: 14px;
+    height: 11px;
+    top: 0;
+    left: 20px;
+  }
