@@ -6,19 +6,7 @@ from functools import wraps
 # Création du blueprint pour les routes de scan
 scan_bp = Blueprint('scan', __name__)
 
-# Décorateur de connexion requise
-"""
-def login_required(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        if 'email' not in session:
-            return redirect('/login')
-        return f(*args, **kwargs)
-    return decorated_function 
-"""
-
 @scan_bp.route('/scan')
-# @login_required
 def scan():
     """
     Affiche la page de scan de plantes.
@@ -29,22 +17,21 @@ def scan():
     return render_template('scan.html')
 
 @scan_bp.route('/scan_info', methods=['GET', 'POST'])
-# @login_required
 def scan_info():
-    """
-    Gère l'identification et l'affichage des informations d'une plante.
-    
-    Returns:
-        Rendu des templates scan_info.html ou scan_pas_info.html
-    """
     if 'image' not in request.files:
         flash("Aucune image n'a été envoyée.", "error")
+        print("DEBUG: Aucune image dans request.files")
         return render_template("scan_pas_info.html")
-    
+
     uploaded_file = request.files["image"]
-    
+
+    # Récupérer l'organe sélectionné du formulaire
+    selected_organ = request.form.get('organe', 'flower')  # Default to 'flower' if not specified
+    print(f"DEBUG: Organe sélectionné : {selected_organ}")
+
     if uploaded_file.filename == "":
         flash("Aucun fichier sélectionné.", "error")
+        print("DEBUG: Fichier vide")
         return render_template("scan_pas_info.html")
 
     try:
@@ -53,33 +40,34 @@ def scan_info():
         os.makedirs(upload_folder, exist_ok=True)
         image_path = os.path.join(upload_folder, uploaded_file.filename)
         uploaded_file.save(image_path)
-        print(f"Image sauvegardée à : {image_path}")  # Débogage
+        print(f"DEBUG: Image sauvegardée à {image_path}")
 
         # Validation de l'image
         validation = validate_plant_image(image_path)
-        print(f"Validation de l'image : {validation}")  # Débogage
+        print(f"DEBUG: Résultat validation: {validation}")
         if not validation['valid']:
             flash(validation['error'], "error")
             return render_template("scan_pas_info.html")
 
-        # Identification de la plante
-        plant_info = identify_plant(image_path)
-        print(f"Infos de la plante : {plant_info}")  # Débogage
+        # Identification de la plante avec l'organe sélectionné
+        plant_info = identify_plant(image_path, organs=[selected_organ])
+        print(f"DEBUG: Infos plante: {plant_info}")
         if plant_info.get("error"):
             flash(plant_info["error"], "error")
             return render_template("scan_pas_info.html")
-        
-        # Obtenir des recommandations de culture
+
+        # Obtenir des recommandations
         care_recommendations = get_plant_care_recommendations(plant_info)
-        print(f"Recommandations de culture : {care_recommendations}")  # Débogage
+        print(f"DEBUG: Recommandations: {care_recommendations}")
 
         return render_template(
-            "scan_info.html", 
-            plant_info=plant_info, 
+            "scan_info.html",
+            plant_info=plant_info,
             care_recommendations=care_recommendations,
             image_path=image_path
         )
 
     except Exception as e:
         flash(f"Erreur : {str(e)}", "error")
+        print(f"DEBUG: Exception levée: {e}")
         return render_template("scan_pas_info.html")
