@@ -162,3 +162,15 @@ h1 {
     transform: scale(1); /* Réduire la flèche à la taille normale lorsqu'on clique */
 }
 
+/* Styles par défaut (PC, tablettes) */
+body {
+    font-size: 18px;
+  }
+  
+  /* Adaptation pour les téléphones */
+  @media screen and (max-width: 768px) {
+    body {
+      font-size: 16px;
+    }
+  }
+  
