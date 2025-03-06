@@ -1,32 +1,109 @@
 body {
-    background-color: #FFF8E6;
-    font-family: Poppins;
-    padding : 20px 10px;
+    min-height: 100vh; /* Définit la hauteur minimale à 100% de la fenêtre */
+    margin-top: 10px;
 }
 
-h1 {
+/* En-tête principal */
+.main-header {
+    display: flex;
+    flex-direction: column; /* Empile les éléments (titre + texte) */
+    align-items: center;
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+}
+
+/* Titre bien centré */
+.page-title {
     font-family: "DynaPuff", cursive;
+    font-size: 22px;
+    margin: 0;
+    text-align: center;
 }
 
+/* Texte sous le titre */
+.accueil {
+    text-align: center;
+    margin-top: 10px;
+}
+/* Bouton profil (à droite) */
+.profil-button {
+    position: absolute;
+    right: 10px;
+    top: 15%;
+    transform: translateY(-50%);
+    background-color: #94a267;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Taille des icônes des boutons */
+.profil-button img {
+    width: 40px;
+    height: 40px;
+}
+
+/* Conteneur des bacs */
 .bac {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    margin-top: 40px; /* Ajoute un espace après le titre */
+    margin-top: 40px;
 }
 
-
-.titre{
+/* Bouton scan */
+.bouton_scan {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
 }
 
-.titre h1{
-    font-size: 22px;
-    margin-bottom: -10px;
+/* Conteneur des icônes de navigation */
+.group-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
 }
 
-.titre p{
-    font-size: 16px;
+/* Icônes de navigation */
+.group-8 {
+    display: flex;
+    gap: 20px;
+}
+
+/* Ajuste les images des icônes */
+.group-8 img {
+    width: 50px;
+    height: auto;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .page-title {
+        font-size: 18px;
+    }
+
+    .back-button,
+    .settings-button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .back-button img,
+    .settings-button img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .group-8 img {
+        width: 40px;
+    }
 }

@@ -18,17 +18,13 @@
 </head>
 <body>
 
-    <div class="bouton_profil-container">
-        <a href="/profil" class="bouton_profil">
-            <img src="{{ url_for('static', filename='images/bouton_profil.png') }}">
-        </a>
-    </div>
-    
-    <div class="titre">
-        <h1>Bienvenue parmi nous!</h1>
-        <p>Cliquez sur un bac pour découvrir les plantes.</p>
-    </div>
-
+    <header class="main-header">
+        <a href="/profil" class="profil-button" aria-label="Profil">
+            <img src="{{ url_for('static', filename='images/bouton_profil.png') }}" alt="Profil">
+          </a>
+        <h1 class="page-title">Bienvenue parmi nous !</h1>
+        <p class="accueil">Cliquez sur un bac pour découvrir les plantes.</p>
+      </header>
 
     <div class="bac">
         <a href="{{ url_for('bacs.bacs_page') }}"><img src="{{ url_for('static', filename='images/bac.png') }}" alt="Bac"></a>

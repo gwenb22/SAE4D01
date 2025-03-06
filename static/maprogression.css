@@ -1,11 +1,17 @@
+body {
+  min-height: 100vh; /* Définit la hauteur minimale à 100% de la fenêtre */
+  margin-top: 10px;
+}
+
 /* Styles pour l'en-tête principal */
 .main-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 10px 0;
   margin-bottom: 20px;
-  width: 90%;
+  width: 100%;
+  position: relative; /* Permet un positionnement absolu pour les boutons */
+
 }
 
 .page-title {
@@ -13,11 +19,15 @@
   font-size: 22px;
   margin: 0;
   text-align: center;
-  flex-grow: 1;
+  position: absolute; /* Garde le titre au centre */
+  left: 50%;
+  transform: translateX(-50%); /* Décale de moitié pour un centrage parfait */
 }
 
 .back-button {
   color: white;
+  position: absolute;
+  left: 1%;
   background-color: #94a267;
   width: 50px;            /* Largeur du bouton */
   height: 50px;           /* Hauteur du bouton */
@@ -33,6 +43,8 @@
 
 .settings-button {
   background-color: #94a267;
+  position: absolute;
+  right: 1%;
   width: 50px;            /* Largeur du bouton */
   height: 50px;           /* Hauteur du bouton */
   border: none;           /* Supprime les bordures */

@@ -1,9 +1,8 @@
 body {
-    min-height: 150vh; /* Définit la hauteur minimale à 100% de la fenêtre */
+    min-height: 200vh; /* Définit la hauteur minimale à 100% de la fenêtre */
     margin: 0;
     padding: 0;
 }
-
 
 :root {
     --vert-principal: #94a267;

@@ -1,9 +1,48 @@
 body {
-  min-height: 150vh; /* Définit la hauteur minimale à 100% de la fenêtre */
-  margin: 0;
-  padding: 0;
+  min-height: 140vh; /* Définit la hauteur minimale à 100% de la fenêtre */
+  margin-top: 10px;
+}
+/* Styles pour l'en-tête principal */
+.main-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  width: 100%;
+  position: relative; /* Permet un positionnement absolu pour les boutons */
+
 }
 
+.page-title {
+  font-family: "DynaPuff", cursive;
+  font-size: 22px;
+  margin: 0;
+  text-align: center;
+  position: absolute; /* Garde le titre au centre */
+  left: 50%;
+  transform: translateX(-50%); /* Décale de moitié pour un centrage parfait */
+}
+
+.settings-button {
+  background-color: #94a267;
+  position: absolute;
+  right: 1%;
+  width: 50px;            /* Largeur du bouton */
+  height: 50px;           /* Hauteur du bouton */
+  border: none;           /* Supprime les bordures */
+  border-radius: 50%;     /* Forme ronde */
+  text-align: center;     /* Centrage du texte */
+  display: flex;          /* Utilisation de Flexbox pour centrer */
+  align-items: center;    /* Alignement vertical */
+  justify-content: center;/* Alignement horizontal */
+  cursor: pointer;       /* Pointeur de souris pour indiquer que c'est cliquable */
+  transition: background-color 0.3s; /* Transition pour l'effet de survol */
+}
+
+.back-button img, .settings-button img {
+  width: 40px;
+  height: 40px;
+}
 
 /* Modification principale pour centrer le contenu */
 .progression {
@@ -101,19 +140,6 @@ body {
   box-sizing: border-box; /* Ajuste les dimensions de l'élément en tenant compte de la bordure */
 }
 
-/* Couleurs spécifiques pour le podium */
-.gold {
-  background-color: #FFD700;
-}
-
-.silver {
-  background-color: #C0C0C0;
-}
-
-.bronze {
-  background-color: #CD7F32;
-}
-
 /* Style pour le score */
 .score {
   font-weight: bold;
@@ -182,7 +208,7 @@ align-items: center; /* Centre le contenu horizontalement */
   color: #FFF8E6;
 }
 
-/* Bouton Modifier le Profil */
+/* Bouton Ma progression */
 .btn {
   display: inline-block;
   margin-top: 15px;

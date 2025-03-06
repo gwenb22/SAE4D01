@@ -25,8 +25,15 @@
     </style>
   </head>
   <body>
+
+    <header class="main-header">
+    
+      <h1 class="page-title">Défis</h1>
+      <a href="/maprogression" class="settings-button" aria-label="MaProgression">
+        <img src="{{ url_for('static', filename='images/bouton_profil.png') }}" alt="Ma Progression">
+      </a>
+    </header>
     <div class="container">
-      <h1>Défis</h1>
       
       <!-- Podium pour les 3 premiers -->
       <div class="podium">
@@ -72,8 +79,6 @@
         <div class="score">{{ user[3] }}%</div>
       </div>
       {% endfor %}
-
-      <a href="/maprogression" class="btn btn-primary">Ma progression</a>
 
     </div>
 

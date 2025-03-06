@@ -1,3 +1,68 @@
+body {
+    min-height: 100vh; /* Définit la hauteur minimale à 100% de la fenêtre */
+    margin-top: 10px;
+}
+
+/* En-tête principal */
+.main-header {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+}
+
+/* Titre bien centré */
+.page-title {
+    font-family: "DynaPuff", cursive;
+    font-size: 22px;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.back-button {
+    color: white;
+    position: absolute;
+    left: 1%;
+    background-color: #94a267;
+    width: 50px;            /* Largeur du bouton */
+    height: 50px;           /* Hauteur du bouton */
+    border: none;           /* Supprime les bordures */
+    border-radius: 50%;     /* Forme ronde */
+    text-align: center;     /* Centrage du texte */
+    display: flex;          /* Utilisation de Flexbox pour centrer */
+    align-items: center;    /* Alignement vertical */
+    justify-content: center;/* Alignement horizontal */
+    cursor: pointer;       /* Pointeur de souris pour indiquer que c'est cliquable */
+    transition: background-color 0.3s; /* Transition pour l'effet de survol */
+  }
+
+
+/* Bouton profil (à droite) */
+.settings-button {
+    position: absolute;
+    right: 1%;
+    background-color: #94a267;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Taille des icônes des boutons */
+.settings-button img {
+    width: 40px;
+    height: 40px;
+}
+
 /* Contenu du profil */
 .profile-content {
     padding: 20px;
