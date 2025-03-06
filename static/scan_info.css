@@ -1,5 +1,5 @@
 /* Style du bouton avec <a> */
-a {
+.bouton_rescanner {
     display: inline-block;  /* Permet d'ajouter du padding et centrer */
     padding: 10px 20px;
     border: 2px solid #94A267;
@@ -13,7 +13,7 @@ a {
 }
 
 /* Effet au survol */
-a:hover {
+.bouton_rescanner:hover {
     background-color: #7a854e;
     border-color: #7a854e;
 }
