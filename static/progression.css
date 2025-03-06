@@ -1,703 +1,116 @@
-.progression-nicolas {
-    background-color: #fff8e6;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .progression-nicolas .div {
-    background-color: #fff8e6;
-    width: 393px;
-    height: 852px;
-    position: relative;
-  }
-  
-  .progression-nicolas .overlap {
-    position: absolute;
-    width: 141px;
-    height: 170px;
-    top: 31px;
-    left: 10px;
-  }
-  
-  .progression-nicolas .ellipse {
-    position: absolute;
-    width: 123px;
-    height: 123px;
-    top: 47px;
-    left: 18px;
-    background-color: #926b55;
-    border-radius: 61.5px;
-  }
-  
-  .progression-nicolas .ellipse-2 {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    top: 0;
-    left: 0;
-    background-color: #94a267;
-    border-radius: 25px;
-  }
-  
-  .progression-nicolas .arrow-down {
-    position: absolute;
-    width: 33px;
-    height: 33px;
-    top: 8px;
-    left: 8px;
-  }
-  
-  .progression-nicolas .group {
-    position: absolute;
-    width: 67px;
-    height: 93px;
-    top: 58px;
-    left: 46px;
-  }
-  
-  .progression-nicolas .text-wrapper {
-    position: absolute;
-    top: 103px;
-    left: 197px;
-    font-family: "Inter-Italic", Helvetica;
-    font-weight: 400;
-    font-style: italic;
-    color: #000000;
-    font-size: 12px;
-    letter-spacing: 0;
-    line-height: normal;
-    text-decoration: underline;
-  }
-  
-  .progression-nicolas .text-wrapper-2 {
-    position: absolute;
-    top: 132px;
-    left: 280px;
-    font-family: "Inter-Regular", Helvetica;
-    font-weight: 400;
-    color: #000000;
-    font-size: 12px;
-    letter-spacing: 0;
-    line-height: normal;
-  }
-  
-  .progression-nicolas .text-wrapper-3 {
-    top: 106px;
-    left: 280px;
-    font-family: "Inter-Regular", Helvetica;
-    color: #000000;
-    font-size: 12px;
-    line-height: normal;
-    position: absolute;
-    font-weight: 400;
-    letter-spacing: 0;
-  }
-  
-  .progression-nicolas .text-wrapper-4 {
-    position: absolute;
-    top: 159px;
-    left: 281px;
-    font-family: "Inter-Regular", Helvetica;
-    font-weight: 400;
-    color: #000000;
-    font-size: 12px;
-    letter-spacing: 0;
-    line-height: normal;
-  }
-  
-  .progression-nicolas .text-wrapper-5 {
-    position: absolute;
-    top: 131px;
-    left: 197px;
-    font-family: "Inter-Italic", Helvetica;
-    font-weight: 400;
-    font-style: italic;
-    color: #000000;
-    font-size: 12px;
-    letter-spacing: 0;
-    line-height: normal;
-    text-decoration: underline;
-  }
-  
-  .progression-nicolas .text-wrapper-6 {
-    position: absolute;
-    top: 159px;
-    left: 197px;
-    font-family: "Inter-Italic", Helvetica;
-    font-weight: 400;
-    font-style: italic;
-    color: #000000;
-    font-size: 12px;
-    letter-spacing: 0;
-    line-height: normal;
-    text-decoration: underline;
-  }
-  
-  .progression-nicolas .overlap-group {
-    position: absolute;
-    width: 350px;
-    height: 129px;
-    top: 242px;
-    left: 22px;
-    background-color: #475936;
-    border-radius: 16px;
-  }
-  
-  .progression-nicolas .text-wrapper-7 {
-    width: 58px;
-    top: 9px;
-    left: 13px;
-    font-family: "Poppins-Regular", Helvetica;
-    color: #fff8e6;
-    font-size: 15px;
-    text-align: center;
-    line-height: 18px;
-    white-space: nowrap;
-    position: absolute;
-    font-weight: 400;
-    letter-spacing: 0;
-  }
-  
-  .progression-nicolas .overlap-2 {
-    position: absolute;
-    width: 328px;
-    height: 21px;
-    top: 55px;
-    left: 13px;
-    background-color: #fff8e6;
-    border-radius: 10px;
-  }
-  
-  .progression-nicolas .rectangle {
-    width: 194px;
-    height: 15px;
-    top: 3px;
-    left: 3px;
-    background-color: #94a267;
-    position: absolute;
-    border-radius: 10px;
-  }
-  
-  .progression-nicolas .text-wrapper-8 {
-    top: 2px;
-    color: #1d1d1b;
-    position: absolute;
-    width: 58px;
-    left: 246px;
-    font-family: "Poppins-Regular", Helvetica;
-    font-weight: 400;
-    font-size: 15px;
-    text-align: center;
-    letter-spacing: 0;
-    line-height: 18px;
-    white-space: nowrap;
-  }
-  
-  .progression-nicolas .overlap-wrapper {
-    position: absolute;
-    width: 38px;
-    height: 38px;
-    top: 13px;
-    left: 298px;
-  }
-  
-  .progression-nicolas .star-wrapper {
-    position: relative;
-    width: 32px;
-    height: 30px;
-    top: 2px;
-    left: 3px;
-    background-image: url(./img/star-12-3.svg);
-    background-size: 100% 100%;
-  }
-  
-  .progression-nicolas .star {
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    top: 9px;
-    left: 7px;
-  }
-  
-  .progression-nicolas .overlap-3 {
-    position: absolute;
-    width: 328px;
-    height: 21px;
-    top: 424px;
-    left: 35px;
-    background-color: #94a267;
-    border-radius: 10px;
-  }
-  
-  .progression-nicolas .rectangle-2 {
-    width: 328px;
-    height: 21px;
-    top: 0;
-    left: 0;
-    background-color: #94a267;
-    position: absolute;
-    border-radius: 10px;
-  }
-  
-  .progression-nicolas .rectangle-3 {
-    width: 128px;
-    height: 12px;
-    top: 5px;
-    left: 5px;
-    background-color: #926b55;
-    position: absolute;
-    border-radius: 10px;
-  }
-  
-  .progression-nicolas .text-wrapper-9 {
-    top: 1px;
-    color: #fff8e6;
-    position: absolute;
-    width: 58px;
-    left: 246px;
-    font-family: "Poppins-Regular", Helvetica;
-    font-weight: 400;
-    font-size: 15px;
-    text-align: center;
-    letter-spacing: 0;
-    line-height: 18px;
-    white-space: nowrap;
-  }
-  
-  .progression-nicolas .overlap-group-wrapper {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    top: 1px;
-    left: 303px;
-  }
-  
-  .progression-nicolas .img-wrapper {
-    position: relative;
-    width: 15px;
-    height: 14px;
-    top: 2px;
-    left: 3px;
-    background-image: url(./img/image.svg);
-    background-size: 100% 100%;
-  }
-  
-  .progression-nicolas .img {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    top: 4px;
-    left: 3px;
-  }
-  
-  .progression-nicolas .text-wrapper-10 {
-    position: absolute;
-    top: 402px;
-    left: 164px;
-    font-family: "Poppins-Regular", Helvetica;
-    font-weight: 400;
-    color: #1e1e2d;
-    font-size: 15px;
-    text-align: center;
-    letter-spacing: 0;
-    line-height: 18px;
-    white-space: nowrap;
-  }
-  
-  .progression-nicolas .overlap-4 {
-    position: absolute;
-    width: 328px;
-    height: 46px;
-    top: 469px;
-    left: 35px;
-  }
-  
-  .progression-nicolas .text-wrapper-11 {
-    position: absolute;
-    width: 130px;
-    top: 5px;
-    left: 99px;
-    font-family: "Poppins-Regular", Helvetica;
-    font-weight: 400;
-    color: #1e1e2d;
-    font-size: 15px;
-    text-align: center;
-    letter-spacing: 0;
-    line-height: 18px;
-    white-space: nowrap;
-  }
-  
-  .progression-nicolas .overlap-5 {
-    position: absolute;
-    width: 328px;
-    height: 44px;
-    top: 2px;
-    left: 0;
-  }
-  
-  .progression-nicolas .rectangle-4 {
-    width: 328px;
-    height: 21px;
-    top: 23px;
-    left: 0;
-    background-color: #94a267;
-    position: absolute;
-    border-radius: 10px;
-  }
-  
-  .progression-nicolas .rectangle-5 {
-    width: 178px;
-    height: 12px;
-    top: 27px;
-    left: 5px;
-    background-color: #926b55;
-    position: absolute;
-    border-radius: 10px;
-  }
-  
-  .progression-nicolas .dash {
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    top: 0;
-    left: 12px;
-  }
-  
-  .progression-nicolas .text-wrapper-12 {
-    position: absolute;
-    width: 58px;
-    top: 24px;
-    left: 246px;
-    font-family: "Poppins-Regular", Helvetica;
-    font-weight: 400;
-    color: #fff8e6;
-    font-size: 15px;
-    text-align: center;
-    letter-spacing: 0;
-    line-height: 18px;
-    white-space: nowrap;
-  }
-  
-  .progression-nicolas .group-2 {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    top: 24px;
-    left: 303px;
-  }
-  
-  .progression-nicolas .overlap-6 {
-    position: relative;
-    width: 15px;
-    height: 14px;
-    top: 2px;
-    left: 3px;
-    background-image: url(./img/star-12-4.svg);
-    background-size: 100% 100%;
-  }
-  
-  .progression-nicolas .plus {
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    top: 0;
-    left: 291px;
-  }
-  
-  .progression-nicolas .overlap-7 {
-    position: absolute;
-    width: 328px;
-    height: 46px;
-    top: 539px;
-    left: 35px;
-  }
-  
-  .progression-nicolas .text-wrapper-13 {
-    position: absolute;
-    width: 208px;
-    top: 5px;
-    left: 58px;
-    font-family: "Poppins-Regular", Helvetica;
-    font-weight: 400;
-    color: #1e1e2d;
-    font-size: 15px;
-    text-align: center;
-    letter-spacing: 0;
-    line-height: 18px;
-    white-space: nowrap;
-  }
-  
-  .progression-nicolas .overlap-8 {
-    position: absolute;
-    width: 328px;
-    height: 43px;
-    top: 3px;
-    left: 0;
-  }
-  
-  .progression-nicolas .rectangle-6 {
-    width: 328px;
-    height: 21px;
-    top: 22px;
-    left: 0;
-    background-color: #94a267;
-    position: absolute;
-    border-radius: 10px;
-  }
-  
-  .progression-nicolas .rectangle-7 {
-    width: 84px;
-    height: 12px;
-    top: 27px;
-    left: 5px;
-    background-color: #926b55;
-    position: absolute;
-    border-radius: 10px;
-  }
-  
-  .progression-nicolas .text-wrapper-14 {
-    top: 23px;
-    color: #fff8e6;
-    position: absolute;
-    width: 58px;
-    left: 246px;
-    font-family: "Poppins-Regular", Helvetica;
-    font-weight: 400;
-    font-size: 15px;
-    text-align: center;
-    letter-spacing: 0;
-    line-height: 18px;
-    white-space: nowrap;
-  }
-  
-  .progression-nicolas .group-3 {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    top: 23px;
-    left: 303px;
-  }
-  
-  .progression-nicolas .overlap-9 {
-    position: relative;
-    width: 15px;
-    height: 14px;
-    top: 2px;
-    left: 3px;
-    background-image: url(./img/star-12-2.svg);
-    background-size: 100% 100%;
-  }
-  
-  .progression-nicolas .overlap-10 {
-    position: absolute;
-    width: 328px;
-    height: 46px;
-    top: 609px;
-    left: 35px;
-  }
-  
-  .progression-nicolas .rectangle-8 {
-    width: 229px;
-    height: 12px;
-    top: 26px;
-    left: 5px;
-    background-color: #926b55;
-    position: absolute;
-    border-radius: 10px;
-  }
-  
-  .progression-nicolas .overlap-11 {
-    position: relative;
-    width: 15px;
-    height: 14px;
-    top: 2px;
-    left: 3px;
-    background-image: url(./img/star-12.svg);
-    background-size: 100% 100%;
-  }
-  
-  .progression-nicolas .iphone-XS-bars {
-    position: absolute;
-    width: 336px;
-    height: 17px;
-    top: 9px;
-    left: 29px;
-  }
-  
-  .progression-nicolas .action {
-    position: absolute;
-    width: 29px;
-    height: 17px;
-    top: 0;
-    left: 0;
-  }
-  
-  .progression-nicolas .time {
-    position: absolute;
-    width: 27px;
-    top: -1px;
-    left: -1px;
-    -webkit-text-stroke: 1px #707070;
-    font-family: "SF Pro Display-Semibold", Helvetica;
-    font-weight: 400;
-    color: #000000;
-    font-size: 15px;
-    text-align: center;
-    letter-spacing: 0;
-    line-height: 18px;
-    white-space: nowrap;
-  }
-  
-  .progression-nicolas .container {
-    position: absolute;
-    width: 60px;
-    height: 12px;
-    top: 2px;
-    left: 276px;
-  }
-  
-  .progression-nicolas .battery {
-    position: absolute;
-    width: 22px;
-    height: 12px;
-    top: 0;
-    left: 38px;
-    background-image: url(./img/rectangle.svg);
-    background-size: 100% 100%;
-  }
-  
-  .progression-nicolas .rectangle-9 {
-    position: relative;
-    width: 16px;
-    height: 8px;
-    top: 2px;
-    left: 2px;
-    background-color: #000000;
-    border-radius: 1.6px;
-  }
-  
-  .progression-nicolas .combined-shape {
-    position: absolute;
-    width: 15px;
-    height: 11px;
-    top: 0;
-    left: 0;
-  }
-  
-  .progression-nicolas .wi-fi {
-    position: absolute;
-    width: 14px;
-    height: 11px;
-    top: 0;
-    left: 20px;
-  }
-  
-  .progression-nicolas .dash-2 {
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    top: 399px;
-    left: 47px;
-  }
-  
-  .progression-nicolas .plus-2 {
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    top: 399px;
-    left: 325px;
-  }
 
-  /* progression.css */
-
+/* Styles généraux pour le conteneur */
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+  width: 100%;  /* Occupe toute la largeur de la page */
+  max-width: 1200px; /* Limite la largeur maximale pour ne pas trop étirer */
+  margin: 0 auto; /* Centre le conteneur horizontalement */
+  padding: 0 20px; /* Ajoute de l'espace à gauche et à droite */
+  box-sizing: border-box; /* Assure que le padding est inclus dans la largeur totale */
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.progression-details {
-  margin-bottom: 30px;
-}
-
-.progression-item {
-  margin-bottom: 20px;
+/* Styles pour le fond vert des sections de progression */
+.progress-section {
+  background-color: #94A267; /* Fond vert */
   padding: 15px;
-  background-color: #f9f9f9;
+  margin-bottom: 20px;
   border-radius: 8px;
+}
+
+.progress-section h3 {
+  margin: 0;
+  color: white;
 }
 
 .progress-container {
   width: 100%;
   height: 20px;
-  background-color: #eee;
+  background-color: #f0f0f0;
   border-radius: 10px;
-  margin: 10px 0;
+  margin: 5px 0;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .progress-bar {
   height: 100%;
+  background-color: #926B55;
   border-radius: 10px;
-  background-color: #4CAF50;
-}
-
-.progress-bar-general {
-  background-color: #4CAF50;
-}
-
-.progress-bar-arrosage {
-  background-color: #2196F3;
-}
-
-.progress-bar-desherbage {
-  background-color: #FF9800;
+  transition: width 0.5s ease-in-out;
+  border: 2px solid white;
+  box-sizing: border-box;
 }
 
 .score {
-  font-weight: bold;
-  text-align: right;
+  color: white;
 }
 
 .hours {
+  color: white;
   font-size: 18px;
-  font-weight: bold;
-  color: #333;
 }
 
-.user-info {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 8px;
+/* Styles pour le header principal */
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 30px;
 }
 
-.user-info p {
-  margin: 5px 0;
+.page-title {
+  font-size: 32px;
+  color: #333;
 }
 
-.navigation {
-  display: flex;
-  justify-content: space-between;
+/* Styles pour les autres sections */
+.user-info {
   margin-top: 30px;
 }
 
+.navigation {
+  margin-top: 30px;
+}
 .back-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s;
+
+color: white;
+position: absolute;
+left: 1%;
+background-color: #94a267;
+width: 50px; /* Largeur du bouton */
+height: 50px; /* Hauteur du bouton */
+border: none; /* Supprime les bordures */
+border-radius: 50%; /* Forme ronde */
+text-align: center; /* Centrage du texte */
+display: flex; /* Utilisation de Flexbox pour centrer */
+align-items: center; /* Alignement vertical */
+justify-content: center;/* Alignement horizontal */
+cursor: pointer; /* Pointeur de souris pour indiquer que c'est cliquable */
+transition: background-color 0.3s; /* Transition pour l'effet de survol */
 }
 
-.back-button:hover {
-  background-color: #388E3C;
+.back-button img {
+width: 30px;
+height: 30px;
+}
+
+/* Barre de navigation inférieure */
+.group-wrapper {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+  left: 0;
+  padding: 10px 0;
+  box-sizing: border-box; /* Ajouté */
+}
+
+.group-8 {
+  display: flex;
+  gap: 30px;
+}
+
+.group-8 img {
+  width: 45px;
+  height: 45px;
 }

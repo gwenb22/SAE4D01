@@ -1,5 +1,5 @@
 body {
-  min-height: 100vh; /* Définit la hauteur minimale à 100% de la fenêtre */
+  min-height: 140vh; /* Définit la hauteur minimale à 100% de la fenêtre */
   margin-top: 10px;
 }
 
@@ -11,7 +11,6 @@ body {
   margin-bottom: 20px;
   width: 100%;
   position: relative; /* Permet un positionnement absolu pour les boutons */
-
 }
 
 .page-title {
@@ -29,120 +28,89 @@ body {
   position: absolute;
   left: 1%;
   background-color: #94a267;
-  width: 50px;            /* Largeur du bouton */
-  height: 50px;           /* Hauteur du bouton */
-  border: none;           /* Supprime les bordures */
-  border-radius: 50%;     /* Forme ronde */
-  text-align: center;     /* Centrage du texte */
-  display: flex;          /* Utilisation de Flexbox pour centrer */
-  align-items: center;    /* Alignement vertical */
+  width: 50px; /* Largeur du bouton */
+  height: 50px; /* Hauteur du bouton */
+  border: none; /* Supprime les bordures */
+  border-radius: 50%; /* Forme ronde */
+  text-align: center; /* Centrage du texte */
+  display: flex; /* Utilisation de Flexbox pour centrer */
+  align-items: center; /* Alignement vertical */
   justify-content: center;/* Alignement horizontal */
-  cursor: pointer;       /* Pointeur de souris pour indiquer que c'est cliquable */
+  cursor: pointer; /* Pointeur de souris pour indiquer que c'est cliquable */
   transition: background-color 0.3s; /* Transition pour l'effet de survol */
 }
 
-.settings-button {
-  background-color: #94a267;
-  position: absolute;
-  right: 1%;
-  width: 50px;            /* Largeur du bouton */
-  height: 50px;           /* Hauteur du bouton */
-  border: none;           /* Supprime les bordures */
-  border-radius: 50%;     /* Forme ronde */
-  text-align: center;     /* Centrage du texte */
-  display: flex;          /* Utilisation de Flexbox pour centrer */
-  align-items: center;    /* Alignement vertical */
-  justify-content: center;/* Alignement horizontal */
-  cursor: pointer;       /* Pointeur de souris pour indiquer que c'est cliquable */
-  transition: background-color 0.3s; /* Transition pour l'effet de survol */
-}
-
-.back-button img, .settings-button img {
+.back-button img {
   width: 30px;
   height: 30px;
 }
 
 .profile-icon {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 /* Styles pour les sections de progression */
 .progress-section {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #94A267;
+  width: 100%;
+  max-width: 100%; /* Ajouté pour empêcher débordement */
+  box-sizing: border-box; /* Important: inclut padding dans largeur */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0; /* Ajouté pour garantir qu'il n'y a pas de marges latérales */
+  margin-right: 0; /* Ajouté pour garantir qu'il n'y a pas de marges latérales */
 }
 
 .progress-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%; /* Ajouté pour que l'en-tête prenne toute la largeur */
 }
 
 .progress-title {
   font-size: 16px;
   margin: 0;
+  color: #FFF8E6;
 }
 
 .progress-value {
   text-align: right;
   font-weight: bold;
   margin: 5px 0;
+  color: #FFF8E6;
 }
 
-/* Styles pour les jauges de progression */
+/* Style pour les jauges de progression */
 .progress-container {
   width: 100%;
   height: 20px;
-  background-color: #e0e0e0;
+  background-color: #f0f0f0;
   border-radius: 10px;
   margin: 5px 0;
   overflow: hidden;
-  position: relative;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
-  border: 1px solid #ccc; /* Ajout d'une bordure pour voir le contour quand vide */
+  box-sizing: border-box; /* Ajouté */
 }
 
 .progress-bar {
   height: 100%;
+  background-color: #926B55;
   border-radius: 10px;
-  transition: width 1s ease-in-out;
-  min-width: 0%; /* Assure que la barre peut être complètement vide */
+  transition: width 0.5s ease-in-out;
+  border: 2px solid white; /* Ajoute un contour blanc autour de la barre */
+  box-sizing: border-box; /* Ajuste les dimensions de l'élément en tenant compte de la bordure */
 }
 
-/* Couleurs différentes pour chaque type de progression */
-.progress-general .progress-bar {
-  background: linear-gradient(to right, #43a047, #66bb6a);
-}
-
-.progress-arrosage .progress-bar {
-  background: linear-gradient(to right, #1976d2, #42a5f5);
-}
-
-.progress-desherbage .progress-bar {
-  background: linear-gradient(to right, #ef6c00, #ffa726);
-}
-
-.progress-heures .progress-bar {
-  background: linear-gradient(to right, #7b1fa2, #ba68c8);
-}
-
-/* Bouton Modifier le Profil */
-.btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 20px;
-  font-size: 16px;
-  color: white;
-  background-color: #94a267;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-
-.btn:hover {
-  background-color: #828e59;
-}
+/* Couleurs pour chaque type de progression - mêmes que dans défis */
+.progress-general .progress-bar { background-color: #926B55; }
+.progress-arrosage .progress-bar { background-color: #926B55; }
+.progress-desherbage .progress-bar { background-color: #926B55; }
+.progress-heures .progress-bar { background-color: #926B55; }
 
 /* Barre de navigation inférieure */
 .group-wrapper {
@@ -150,6 +118,10 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+  bottom: 0;
+  left: 0;
+  padding: 10px 0;
+  box-sizing: border-box; /* Ajouté */
 }
 
 .group-8 {
