@@ -82,9 +82,17 @@
 
     <div class="group-wrapper">
       <div class="group-8">
-        <a href="{{ url_for('info.index') }}"><img class="loupe" src="static/images/loupe.png" /></a>
-        <a href="{{ url_for('accueil') }}"><img class="map" src="static/images/map.png" /></a>
-        <a href="{{ url_for('defis.defis') }}"><img class="resultats" src="static/images/re-sultats.png" /></a>
+          <a href="{{ url_for('info.index') }}">
+              <img class="loupe" src="static/images/loupe.png" />
+          </a>
+          <a href="{{ url_for('accueil') }}">
+              <div class="map-wrapper">
+                  <img class="map" src="static/images/map.png" />
+              </div>
+          </a>
+          <a href="{{ url_for('defis.defis') }}">
+              <img class="resultats" src="static/images/resultats.png" />
+          </a>
       </div>
   </div>
   
