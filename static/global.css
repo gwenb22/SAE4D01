@@ -93,13 +93,37 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .bouton_scan img {
-    width: 70px;  /* Ajuste la taille de l'image */
+    width: 45px;  /* Ajuste la taille de l'image */
+    height: 45px;
+    object-fit: contain;
+}
+
+.bouton_profil-container {
+    display: flex;
+    justify-content: flex-end; /* Aligne à droite */
+    width: 100%; /* Prend toute la largeur pour que flex fonctionne */
+    padding-right: 20px; /* Espacement depuis le bord droit */
+}
+
+.bouton_profil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+}
+
+
+.bouton_profil img {
+    width: 70px;
     height: 70px;
     object-fit: contain;
 }

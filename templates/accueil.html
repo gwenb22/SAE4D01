@@ -18,6 +18,12 @@
 </head>
 <body>
 
+    <div class="bouton_profil-container">
+        <a href="#" class="bouton_profil">
+            <img src="{{ url_for('static', filename='images/bouton_profil.png') }}">
+        </a>
+    </div>
+    
     <div class="titre">
         <h1>Bienvenue parmi nous!</h1>
         <p>Cliquez sur un bac pour découvrir les plantes.</p>
@@ -25,10 +31,11 @@
 
 
     <div class="bac">
-        <img src="static/images/bac.png" alt="Bac">
-        <img src="static/images/bac.png" alt="Bac">
-        <img src="static/images/bac.png" alt="Bac">
+        <a href="{{ url_for('bacs.bacs_page') }}"><img src="{{ url_for('static', filename='images/bac.png') }}" alt="Bac"></a>
+        <a href="{{ url_for('bacs.bacs_page') }}"><img src="{{ url_for('static', filename='images/bac.png') }}" alt="Bac"></a>
+        <a href="{{ url_for('bacs.bacs_page') }}"><img src="{{ url_for('static', filename='images/bac.png') }}" alt="Bac"></a>
     </div>
+    
 
     <a href="{{ url_for('scan.scan') }}" class="bouton_scan"><img src="{{ url_for('static', filename='images/bouton_scan.png') }}"></a>
     <div class="group-wrapper">
