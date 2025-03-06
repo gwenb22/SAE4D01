@@ -2,75 +2,50 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="global.css" />
+    <title>Nous Contacter</title>
+    <link rel="stylesheet" href="static/global.css">
+    <!-- Vous pouvez ajouter un fichier CSS spécifique pour le contact -->
     <link rel="stylesheet" href="static/contact.css" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div class="nous-contacter">
-      <div class="div">
-        <div class="tab-bar"><div class="settings">Mon profil</div></div>
-        <div class="bouton-retour"><img class="arrow-down" src="static/images/bouton_retour.png" /></div>
-        <div class="information">
-          <div class="group">
-            <div class="group-2">
-              <div class="personal-information">Informations personnelles</div>
-              <img class="arrows-diagrams" src="static/images/Arrow.svg" />
-              <img class="img" src="static/images/Group.svg" />
+    <div class="container">
+      <div class="tab-bar">
+        <div class="settings">Nous Contacter</div>
+      </div>
+      
+      <div class="contact-content">
+        <div class="contact-form">
+          <h2>Envoyez-nous un message</h2>
+          <form action="/envoyer-message" method="post">
+            <div class="form-group">
+              <label for="sujet">Sujet</label>
+              <input type="text" id="sujet" name="sujet" required>
             </div>
-            <img class="vector" src="static/images/ligne.svg" />
-          </div>
-          <div class="group-3">
-            <div class="group-4">
-              <div class="text-wrapper">Notifications</div>
-              <img class="interface-essential" src="static/images/cloche.svg" />
-              <div class="overlap-group-wrapper">
-                <div class="overlap-group"><div class="text-wrapper-2">2</div></div>
-              </div>
+            
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" required></textarea>
             </div>
-            <img class="vector-2" src="static/images/ligne.svg" />
-          </div>
-          <div class="group-5">
-            <div class="group-wrapper">
-              <div class="group-6">
-                <div class="message-center">Messagerie</div>
-                <img class="arrows-diagrams" src="static/images/Arrow.svg" />
-                <img class="img" src="static/images/discu.svg" />
-              </div>
-            </div>
-            <img class="vector" src="static/images/ligne.svg" />
-          </div>
-          <div class="group-7">
-            <img class="vector" src="static/images/ligne.svg" />
-            <div class="group-2">
-              <div class="address">Adresse</div>
-              <img class="img" src="static/images/loc.svg" />
-              <img class="arrows-diagrams" src="static/images/Arrow.svg" />
-            </div>
-          </div>
-          <div class="group-8">
-            <img class="vector" src="static/images/ligne.svg" />
-            <div class="group-2">
-              <div class="settings-2">Paramètres</div>
-              <img class="img" src="static/images/roue.svg" />
-              <img class="arrows-diagrams" src="static/images/Arrow.svg" />
-            </div>
-          </div>
+            
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+          </form>
         </div>
-        <div class="overlap">
-          <div class="profile">
-            <div class="group-9"></div>
-            <div class="div-wrapper"><div class="text-wrapper-3">Tanya Myroniuk</div></div>
-          </div>
-          <img class="group-10" src="static/images/profil.svg" />
+        
+        <div class="contact-info">
+          <h3>Informations de contact</h3>
+          <p><strong>Email:</strong> contact@exemple.fr</p>
+          <p><strong>Téléphone:</strong> 01 23 45 67 89</p>
         </div>
+      </div>
+      
+      <div class="bouton-retour">
+        <a href="/parametre">
+          <img class="arrow-down" src="static/images/bouton_retour.png" />
+        </a>
       </div>
     </div>
   </body>

@@ -1,5 +1,5 @@
 import unittest
-from models import Database, User, Plant
+from models.models import Database, User, Plant
 
 class TestDatabase(unittest.TestCase):
     """Tests pour les modèles de la base de données."""
