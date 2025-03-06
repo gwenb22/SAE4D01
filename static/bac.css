@@ -4,17 +4,6 @@
     --marron-terre: #926b55;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: var(--vert-principal);
-    color: var(--beige-clair);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
-}
-
 .bac-container {
     width: 100%;
     max-width: 400px;
