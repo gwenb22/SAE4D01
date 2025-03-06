@@ -12,7 +12,7 @@ body {
 
 .bac-container {
     width: 100%;
-    max-width: 400px;
+    max-width: 750px;
     background-color: var(--beige-clair);
     padding: 20px;
 }
@@ -20,6 +20,7 @@ body {
 .bac {
     background-color: var(--beige-clair);
     border-radius: 15px;
+    
 }
 
 h1 {
