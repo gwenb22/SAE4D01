@@ -7,7 +7,7 @@
 .bac-container {
     width: 100%;
     max-width: 400px;
-    background-color: var(--vert-principal);
+    background-color: var(--beige-clair);
     padding: 20px;
 }
 
@@ -18,7 +18,7 @@
 
 h1 {
     text-align: center;
-    color: var(--beige-clair);
+    color: var(--vert-principal);
     margin-bottom: 20px;
 }
 
