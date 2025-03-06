@@ -1,3 +1,10 @@
+body {
+    min-height: 150vh; /* Définit la hauteur minimale à 100% de la fenêtre */
+    margin: 0;
+    padding: 0;
+}
+
+
 :root {
     --vert-principal: #94a267;
     --beige-clair: #fff8e6;
@@ -86,20 +93,30 @@ h1 {
     margin-bottom: 15px;
 }
 
-.arrosage-btn {
-    background-color: #fff8e6;
+.btn {
     border: none;
-    padding: 10px 10px;
-    border-radius: 30px;
+    background-color: #ffffff; /* Couleur initiale du bouton */
+    padding: 30px;
     cursor: pointer;
-    font-weight: bold;
     transition: background-color 0.3s ease;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 60px;
+}
+
+/* Lorsque le bouton est pressé (état 'active') */
+.btn.active {
+    background-color: #84BDE8; /* Couleur rouge pour l'état activé */
+}
+
+.btn img {
+    width: 40px; /* Ajuste la taille de l'image */
+    height: auto;
 }
 
 
-.arrosage-btn:active {
-    background-color: #3e8e41;
-}
+
 .autres-plantes {
     display: flex;
     flex-direction: column;
@@ -111,3 +128,38 @@ h1 {
         padding: 10px;
     }
 }
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 200px; /* Limite la largeur si nécessaire */
+    margin: 20px auto;
+}
+
+.navigation-arrow {
+    font-size: 30px; /* Taille de la flèche */
+    color: var(--vert-principal); /* Couleur des flèches */
+    text-decoration: none;
+    padding: 10px; /* Ajuste l'espace autour de la flèche */
+    width: 50px; /* Donne une largeur fixe (pour rendre l'élément carré) */
+    height: 50px; /* Donne une hauteur fixe (égale à la largeur pour un carré parfait) */
+    display: flex; /* Utilise flexbox pour centrer le contenu */
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* Fond blanc */
+    border-radius: 50%; /* Pour arrondir le bouton */
+    transition: background-color 0.3s, transform 0.3s; /* Effet fluide */
+    cursor: pointer;
+}
+
+.navigation-arrow:hover {
+    background-color: #d2d2d2; /* Changer la couleur au survol */
+    transform: scale(1.2); /* Agrandir la flèche au survol */
+}
+
+.navigation-arrow:active {
+    transform: scale(1); /* Réduire la flèche à la taille normale lorsqu'on clique */
+}
+
