@@ -66,7 +66,7 @@ def login():
         if not email or not mdp:  # Vérifier si les champs sont vides
             flash("Veuillez entrer un email et un mot de passe.", "warning")
             return redirect(url_for('auth.login'))  # Retourner sur la page de login
-
+ 
         db = get_db()
         user = db.execute('SELECT id_utilisateur, mdp FROM utilisateur WHERE email = ?', (email,)).fetchone()
 
@@ -79,7 +79,6 @@ def login():
 
         if check_password_hash(user['mdp'], mdp): 
             session.clear()  
-            session.permanent = True  
             session['user_id'] = user['id_utilisateur']  
 
             print("Connexion réussie, session enregistrée :", session)  # Debug
