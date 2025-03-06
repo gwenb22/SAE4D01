@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Modifier mon profil</title>
+    <link rel="stylesheet" href="static/global.css">
+    <link rel="stylesheet" href="static/modifier_profil.css" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="parametres">
+      <div class="div">
+        <div class="settings">Modifier mon profil</div>
+      </div>
+      
+      <div class="profile-content">
+        <form method="POST" action="/modifier-profil">
+          <div class="form-group">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" value="{{ user.nom }}" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom" value="{{ user.prenom }}" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" value="{{ user.email }}" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="tel">Téléphone</label>
+            <input type="tel" id="tel" name="tel" value="{{ user.tel or '' }}">
+          </div>
+          
+          <div class="form-group password-section">
+            <h3>Modifier le mot de passe</h3>
+            <p class="note">Laissez vide si vous ne souhaitez pas changer votre mot de passe</p>
+            
+            <div class="password-fields">
+              <div class="form-group">
+                <label for="old_password">Ancien mot de passe</label>
+                <input type="password" id="old_password" name="old_password">
+              </div>
+              
+              <div class="form-group">
+                <label for="new_password">Nouveau mot de passe</label>
+                <input type="password" id="new_password" name="new_password">
+              </div>
+              
+              <div class="form-group">
+                <label for="confirm_password">Confirmer le nouveau mot de passe</label>
+                <input type="password" id="confirm_password" name="confirm_password">
+              </div>
+            </div>
+          </div>
+          
+          <div class="buttons">
+            <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+            <a href="/profil" class="btn btn-secondary">Annuler</a>
+          </div>
+        </form>
+      </div>
+      
+      <div class="bouton-retour">
+        <a href="/profil">
+          <img class="arrow-down" src="static/images/bouton_retour.png" />
+        </a>
+      </div>
+    </div>
+
+    <div class="group-wrapper">
+        <div class="group-8">
+            <a href="{{ url_for('info.index') }}">
+                <img class="loupe" src="static/images/loupe.png" />
+            </a>
+            <a href="{{ url_for('accueil.accueil') }}">
+                <div class="map-wrapper">
+                    <img class="map" src="static/images/map.png" />
+                </div>
+            </a>
+            <a href="{{ url_for('defis.defis') }}">
+                <img class="resultats" src="static/images/resultats.png" />
+            </a>
+        </div>
+    </div>
+    
+    {% if messages %}
+    <div class="messages">
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </body>
+</html>

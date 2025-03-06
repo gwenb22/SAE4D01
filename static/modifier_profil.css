@@ -1,0 +1,163 @@
+/* Conteneur principal */
+.parametres {
+    background-color: white;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+}
+
+/* Barre d'onglet */
+.settings {
+    background-color: #94a267;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+}
+
+/* Contenu du formulaire */
+.profile-content {
+    padding: 15px;
+    text-align: left;
+}
+
+/* Style des groupes de formulaire */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Section modification du mot de passe */
+.password-section {
+    margin-top: 20px;
+}
+
+.password-section h3 {
+    font-size: 16px;
+    color: #94a267;
+}
+
+.note {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Boutons */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.3s;
+}
+
+.btn-primary {
+    background-color: #94a267;
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #828e59;
+}
+
+.btn-secondary {
+    background-color: #ccc;
+    color: black;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #999;
+}
+
+/* Messages d'alerte */
+.messages {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.alert {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.alert-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.alert-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* ⚡ Media Queries pour les petits écrans */
+@media (max-width: 480px) {
+    .parametres {
+        width: 95%;
+        max-width: 350px;
+        padding: 15px;
+    }
+
+    .settings {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .form-group input {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    .arrow-down {
+        width: 30px;
+        height: 30px;
+    }
+}
