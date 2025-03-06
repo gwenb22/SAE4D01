@@ -1,13 +1,3 @@
-body {
-    background-color: #FFF8E6;
-    font-family: Poppins;
-    padding : 20px 10px;
-}
-
-h1 {
-    font-family: "DynaPuff", cursive;
-}
-
 /* Style du bouton avec <a> */
 a {
     display: inline-block;  /* Permet d'ajouter du padding et centrer */

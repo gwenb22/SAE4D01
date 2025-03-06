@@ -21,6 +21,9 @@
             <h1>Bac 1</h1>
             
             <div class="bac-controle">
+                <a class="arrosage-btn">
+                <img src="static/images/arrosage.svg" alt="Bouton">
+                </a>
                 <h3>Arrosage automatique</h3>
                 <p>Ce mode permet un arrosage automatique en cas d'absence et s'adapte aux besoins des plantes présentes dans le bac.</p>
             </div>
@@ -57,9 +60,17 @@
 
     <div class="group-wrapper">
         <div class="group-8">
-          <a href="{{ url_for('info.index') }}"><img class="loupe" src="static/images/loupe.png" /></a>
-          <a href="{{ url_for('accueil.accueil') }}"><img class="map" src="static/images/map.png" /></a>
-          <a href="{{ url_for('defis.defis') }}"><img class="resultats" src="static/images/re-sultats.png" /></a>
+            <a href="{{ url_for('info.index') }}">
+                <img class="loupe" src="static/images/loupe.png" />
+            </a>
+            <a href="{{ url_for('accueil') }}">
+                <div class="map-wrapper">
+                    <img class="map" src="static/images/map.png" />
+                </div>
+            </a>
+            <a href="{{ url_for('defis.defis') }}">
+                <img class="resultats" src="static/images/resultats.png" />
+            </a>
         </div>
     </div>
 </body>

@@ -82,7 +82,6 @@ def login():
         if check_password_hash(user['mdp'], mdp): 
             # Configurer la session
             session.clear()  
-            session.permanent = True  
             session['user_id'] = user['id_utilisateur']  
 
             # Configurer Flask-Login

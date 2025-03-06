@@ -9,7 +9,8 @@ logging.basicConfig(level=logging.DEBUG)
 # Clé API et configuration PlantNet
 PLANTNET_API_KEY = "2b10YUu9ziZH7Ay8lM8YyPQc"
 PROJECT = "all"
-PLANTNET_API_URL = f"https://my-api.plantnet.org/v2/identify/{PROJECT}?api-key={PLANTNET_API_KEY}"
+PLANTNET_API_URL = f"https://my-api.plantnet.org/v2/identify/{PROJECT}?api-key={PLANTNET_API_KEY}&lang=fr"
+
 
 def validate_plant_image(image_path):
     """
