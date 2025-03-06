@@ -1,159 +1,223 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="static/maprogression.css" />
-    <link rel="stylesheet" href="static/global.css">
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ma progression</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='maprogression.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <style>
+    /* Styles pour les jauges de progression */
+    .progress-container {
+      width: 100%;
+      height: 20px;
+      background-color: #e0e0e0;
+      border-radius: 10px;
+      margin: 10px 0;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .progress-bar {
+      height: 100%;
+      border-radius: 10px;
+      transition: width 1s ease-in-out;
+    }
+    
+    /* Couleurs différentes pour chaque type de progression */
+    .progress-general .progress-bar {
+      background-color: #4CAF50; /* Vert */
+    }
+    
+    .progress-arrosage .progress-bar {
+      background-color: #2196F3; /* Bleu */
+    }
+    
+    .progress-desherbage .progress-bar {
+      background-color: #FF9800; /* Orange */
+    }
+    
+    .progress-heures .progress-bar {
+      background-color: #9C27B0; /* Violet */
+    }
+    
+    /* Styles pour les sections */
+    .progress-section {
+      background-color: #f5f5f5;
+      border-radius: 15px;
+      padding: 15px;
+      margin: 15px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .progress-title {
+      font-family: 'DynaPuff', cursive;
+      font-size: 1.2rem;
+      color: #333;
+    }
+    
+    .progress-value {
+      font-weight: bold;
+      color: #555;
+    }
+    
+    /* Navigation */
+    .nav-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      padding: 10px 0;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-around;
+      z-index: 100;
+    }
+    
+    .nav-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #555;
+    }
+    
+    .nav-icon img {
+      width: 30px;
+      height: 30px;
+      margin-bottom: 5px;
+    }
+    
+    /* Header */
+    .main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .page-title {
+      font-family: 'DynaPuff', cursive;
+      font-size: 1.5rem;
+      color: #333;
+    }
+    
+    .settings-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .settings-button img {
+      width: 24px;
+      height: 24px;
+    }
+    
+    /* Layout principal */
+    .main-content {
+      padding: 20px;
+      margin-bottom: 70px; /* Espace pour la navigation fixe */
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <h1 class="page-title">Ma progression</h1>
+    <button class="settings-button" aria-label="Paramètres">
+      <img src="{{ url_for('static', filename='images/ecrou.png') }}" alt="Paramètres">
+    </button>
+  </header>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-    <style>
-      /* Styles pour les jauges de progression */
-      .jauge-container {
-        width: 100%;
-        height: 20px;
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        margin-top: 5px;
-        overflow: hidden;
-        position: relative;
-      }
-      
-      .jauge-remplissage {
-        height: 100%;
-        background-color: #4CAF50; /* Vert */
-        border-radius: 10px;
-        transition: width 1s ease-in-out;
-      }
-      
-      /* Couleurs différentes pour chaque type de progression */
-      .jauge-general .jauge-remplissage {
-        background-color: #4CAF50; /* Vert */
-      }
-      
-      .jauge-arrosage .jauge-remplissage {
-        background-color: #2196F3; /* Bleu */
-      }
-      
-      .jauge-desherbage .jauge-remplissage {
-        background-color: #FF9800; /* Orange */
-      }
-      
-      .jauge-heures .jauge-remplissage {
-        background-color: #9C27B0; /* Violet */
-      }
-    </style>
-  </head>
-  <body>
-    <div class="prog-perso">
-      <div class="div">
-        <div class="overlap-2">
-          <div class="text-wrapper-3">Ma progression</div>
-          <div class="parametre">
-            <div class="overlap-group-2">
-              <div class="ellipse-3"></div>
-              <img class="ecrou" src="static/images/ecrou.png" />
-            </div>
-          </div>
-        </div>
-
-        <div class="overlap">
-          <div class="rectangle"></div>
-          <div class="ellipse"></div>
-          <div class="group">
-            <div class="group-2">
-              <img class="map" src="static/images/map.png" />
-              <img class="resultats" src="static/images/re-sultats.png" />
-            </div>
-          </div>
-          <img class="loupe" src="static/images/loupe.png" />
-        </div>
-
-        <div class="overlap-group">
-          <div class="ellipse-2"></div>
-          <div class="rectangle-2"></div>
-          <div class="text-wrapper">Nombre total de points</div>
-          <div class="rectangle-3"></div>
-          <div class="rectangle-4"></div>
-          <img class="group-3" src="static/images/profil.svg" />
-          <div class="text-wrapper-2">{{ progression.general }}/100</div>
-          <div class="overlap-wrapper">
-            <div class="star-wrapper"><img class="star" src="static/images/etoile.png" /></div>
-          </div>
-          <!-- Ajout de la jauge générale -->
-          <div class="jauge-container jauge-general">
-            <div class="jauge-remplissage" style="width: {{ progression.general }}%;"></div>
-          </div>
-        </div>
-
-        <div class="overlap-3">
-          <div class="rectangle-5"></div>
-          <div class="rectangle-6"></div>
-          <div class="text-wrapper-4">{{ progression.arrosage }}/100</div>
-          <div class="overlap-group-wrapper">
-            <div class="img-wrapper"><img class="star-2" src="static/images/etoile.png" /></div>
-          </div>
-          <!-- Ajout de la jauge arrosage -->
-          <div class="jauge-container jauge-arrosage">
-            <div class="jauge-remplissage" style="width: {{ progression.arrosage }}%;"></div>
-          </div>
-        </div>
-        <div class="text-wrapper-5">Arrosage</div>
-
-        <div class="overlap-4">
-          <div class="rectangle-5"></div>
-          <div class="rectangle-7"></div>
-          <div class="text-wrapper-4">{{ progression.desherbage }}/100</div>
-          <div class="overlap-group-wrapper">
-            <div class="overlap-5"><img class="star-2" src="static/images/etoile.png"/></div>
-          </div>
-          <!-- Ajout de la jauge désherbage -->
-          <div class="jauge-container jauge-desherbage">
-            <div class="jauge-remplissage" style="width: {{ progression.desherbage }}%;"></div>
-          </div>
-        </div>
-        <div class="text-wrapper-6">Désherbage</div>
-
-        <div class="overlap-6">
-          <div class="text-wrapper-7">Nombre d'heures passées</div>
-          <div class="overlap-7">
-            <div class="rectangle-8"></div>
-            <div class="rectangle-8"></div>
-            <div class="rectangle-9"></div>
-            <div class="text-wrapper-8">{{ progression.heures_passees }}/100</div>
-            <div class="group-4">
-              <div class="overlap-8"><img class="star-2" src="static/images/etoile.png" /></div>
-            </div>
-            <!-- Ajout de la jauge heures passées -->
-            <div class="jauge-container jauge-heures">
-              <!-- Ici nous limitons à 100% maximum pour l'affichage -->
-              <div class="jauge-remplissage" style="width: {{ [progression.heures_passees, 100]|min }}%;"></div>
-            </div>
-          </div>
+  <main class="main-content">
+    <!-- Section progression générale -->
+    <section class="progress-section">
+      <div class="progress-header">
+        <h2 class="progress-title">Nombre total de points</h2>
+        <div class="star-container">
+          <img src="{{ url_for('static', filename='images/etoile.png') }}" alt="Étoile" class="star-icon">
         </div>
       </div>
-    </div>
-
-    <div class="group-wrapper">
-      <div class="group-8">
-        <a href="{{ url_for('info.index') }}"><img class="loupe" src="static/images/loupe.png" /></a>
-        <a href="{{ url_for('accueil') }}"><img class="map" src="static/images/map.png" /></a>
-        <a href="{{ url_for('defis.defis') }}"><img class="resultats" src="static/images/re-sultats.png" /></a>
+      <div class="progress-value">{{ progression.general }}/100</div>
+      <div class="progress-container progress-general">
+        <div class="progress-bar" style="width: {{ progression.general }}%;"></div>
       </div>
-  </div>
+      <img src="{{ url_for('static', filename='images/profil.svg') }}" alt="Profil" class="profile-icon">
+    </section>
 
-    <!-- Script pour animer les jauges lors du chargement de la page -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // L'animation est gérée par le CSS transition
-        console.log("Jauges de progression initialisées");
-      });
-    </script>
-  </body>
+    <!-- Section arrosage -->
+    <section class="progress-section">
+      <div class="progress-header">
+        <h2 class="progress-title">Arrosage</h2>
+        <div class="star-container">
+          <img src="{{ url_for('static', filename='images/etoile.png') }}" alt="Étoile" class="star-icon">
+        </div>
+      </div>
+      <div class="progress-value">{{ progression.arrosage }}/100</div>
+      <div class="progress-container progress-arrosage">
+        <div class="progress-bar" style="width: {{ progression.arrosage }}%;"></div>
+      </div>
+    </section>
+
+    <!-- Section désherbage -->
+    <section class="progress-section">
+      <div class="progress-header">
+        <h2 class="progress-title">Désherbage</h2>
+        <div class="star-container">
+          <img src="{{ url_for('static', filename='images/etoile.png') }}" alt="Étoile" class="star-icon">
+        </div>
+      </div>
+      <div class="progress-value">{{ progression.desherbage }}/100</div>
+      <div class="progress-container progress-desherbage">
+        <div class="progress-bar" style="width: {{ progression.desherbage }}%;"></div>
+      </div>
+    </section>
+
+    <!-- Section heures passées -->
+    <section class="progress-section">
+      <div class="progress-header">
+        <h2 class="progress-title">Nombre d'heures passées</h2>
+        <div class="star-container">
+          <img src="{{ url_for('static', filename='images/etoile.png') }}" alt="Étoile" class="star-icon">
+        </div>
+      </div>
+      <div class="progress-value">{{ progression.heures_passees }}/100</div>
+      <div class="progress-container progress-heures">
+        <div class="progress-bar" style="width: {{ [progression.heures_passees, 100]|min }}%;"></div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="nav-container">
+    <a href="{{ url_for('info.index') }}" class="nav-icon" aria-label="Recherche">
+      <img src="{{ url_for('static', filename='images/loupe.png') }}" alt="Recherche">
+    </a>
+    <a href="{{ url_for('accueil') }}" class="nav-icon" aria-label="Accueil">
+      <img src="{{ url_for('static', filename='images/map.png') }}" alt="Accueil">
+    </a>
+    <a href="{{ url_for('defis.defis') }}" class="nav-icon" aria-label="Défis">
+      <img src="{{ url_for('static', filename='images/re-sultats.png') }}" alt="Défis">
+    </a>
+  </nav>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Animation gérée par la transition CSS
+      console.log("Jauges de progression initialisées");
+    });
+  </script>
+</body>
 </html>
