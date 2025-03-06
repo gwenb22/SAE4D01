@@ -1,0 +1,46 @@
+/* Contenu du profil */
+.profile-content {
+    padding: 20px;
+}
+
+/* Informations de l'utilisateur */
+.profile-info {
+    text-align: left;
+}
+
+.profile-info h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.info-row {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.info-row strong {
+    color: #94a267;
+}
+
+/* Bouton Modifier le Profil */
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #94a267;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #828e59;
+}
