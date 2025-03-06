@@ -32,6 +32,12 @@ class User(UserMixin):
             mdp=user_dict['mdp'],
             classe=user_dict.get('classe')
         )
+        
+    @classmethod
+    def get(cls, user_id):
+        """Récupère un utilisateur par son ID depuis la base de données"""
+        user_dict = DatabaseManager.get_user_by_id(user_id)
+        return cls.from_dict(user_dict) if user_dict else None
 
 def create_app():
     app = Flask(__name__)

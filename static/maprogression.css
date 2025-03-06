@@ -1,50 +1,151 @@
+/* Styles pour l'en-tête principal */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  width: 90%;
+}
+
+.page-title {
+  font-family: "DynaPuff", cursive;
+  font-size: 22px;
+  margin: 0;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.back-button {
+  color: white;
+  background-color: #94a267;
+  width: 50px;            /* Largeur du bouton */
+  height: 50px;           /* Hauteur du bouton */
+  border: none;           /* Supprime les bordures */
+  border-radius: 50%;     /* Forme ronde */
+  text-align: center;     /* Centrage du texte */
+  display: flex;          /* Utilisation de Flexbox pour centrer */
+  align-items: center;    /* Alignement vertical */
+  justify-content: center;/* Alignement horizontal */
+  cursor: pointer;       /* Pointeur de souris pour indiquer que c'est cliquable */
+  transition: background-color 0.3s; /* Transition pour l'effet de survol */
+}
+
+.settings-button {
+  background-color: #94a267;
+  width: 50px;            /* Largeur du bouton */
+  height: 50px;           /* Hauteur du bouton */
+  border: none;           /* Supprime les bordures */
+  border-radius: 50%;     /* Forme ronde */
+  text-align: center;     /* Centrage du texte */
+  display: flex;          /* Utilisation de Flexbox pour centrer */
+  align-items: center;    /* Alignement vertical */
+  justify-content: center;/* Alignement horizontal */
+  cursor: pointer;       /* Pointeur de souris pour indiquer que c'est cliquable */
+  transition: background-color 0.3s; /* Transition pour l'effet de survol */
+}
+
+.back-button img, .settings-button img {
+  width: 30px;
+  height: 30px;
+}
+
+.profile-icon {
+  margin-bottom: 50px;
+}
+
+/* Styles pour les sections de progression */
+.progress-section {
+  margin-bottom: 20px;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-title {
+  font-size: 16px;
+  margin: 0;
+}
+
+.progress-value {
+  text-align: right;
+  font-weight: bold;
+  margin: 5px 0;
+}
 
 /* Styles pour les jauges de progression */
-.jauge-container {
-  width: 90%;
+.progress-container {
+  width: 100%;
   height: 20px;
   background-color: #e0e0e0;
   border-radius: 10px;
-  margin: 10px auto 5px auto;
+  margin: 5px 0;
   overflow: hidden;
   position: relative;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc; /* Ajout d'une bordure pour voir le contour quand vide */
 }
 
-.jauge-remplissage {
+.progress-bar {
   height: 100%;
-  width: 0; /* Commence à 0 pour l'animation */
   border-radius: 10px;
   transition: width 1s ease-in-out;
+  min-width: 0%; /* Assure que la barre peut être complètement vide */
 }
 
 /* Couleurs différentes pour chaque type de progression */
-.jauge-general .jauge-remplissage {
+.progress-general .progress-bar {
   background: linear-gradient(to right, #43a047, #66bb6a);
 }
 
-.jauge-arrosage .jauge-remplissage {
+.progress-arrosage .progress-bar {
   background: linear-gradient(to right, #1976d2, #42a5f5);
 }
 
-.jauge-desherbage .jauge-remplissage {
+.progress-desherbage .progress-bar {
   background: linear-gradient(to right, #ef6c00, #ffa726);
 }
 
-.jauge-heures .jauge-remplissage {
+.progress-heures .progress-bar {
   background: linear-gradient(to right, #7b1fa2, #ba68c8);
 }
 
-/* Effet brillant sur les jauges */
-.jauge-remplissage::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, 
-                              rgba(255, 255, 255, 0.3) 0%, 
-                              rgba(255, 255, 255, 0) 100%);
-  pointer-events: none;
+/* Bouton Modifier le Profil */
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #94a267;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #828e59;
+}
+
+/* Barre de navigation inférieure */
+.group-wrapper {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.group-8 {
+  display: flex;
+  gap: 30px;
+}
+
+.group-8 img {
+  width: 45px;
+  height: 45px;
 }

@@ -1,3 +1,10 @@
+body {
+  min-height: 150vh; /* Définit la hauteur minimale à 100% de la fenêtre */
+  margin: 0;
+  padding: 0;
+}
+
+
 /* Modification principale pour centrer le contenu */
 .progression {
   background-color: #fff8e6;
@@ -173,4 +180,23 @@ align-items: center; /* Centre le contenu horizontalement */
 
 .user-link {
   color: #FFF8E6;
+}
+
+/* Bouton Modifier le Profil */
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #94a267;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #828e59;
 }

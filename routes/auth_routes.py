@@ -33,7 +33,7 @@ def register():
             existing_user = db.execute('SELECT id_utilisateur FROM utilisateur WHERE email = ?', (email,)).fetchone()
             if existing_user:
                 flash("Un compte avec cet email existe déjà.", "danger")
-                return render_template('inscription.html')
+                return render_template('connexion.html')
 
             # Hasher le mot de passe
             hashed_password = generate_password_hash(mdp)
