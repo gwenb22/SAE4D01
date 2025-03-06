@@ -3,7 +3,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from utils.database import get_db
 from flask_login import login_user, logout_user, login_required, current_user
 from datetime import timedelta
-from models.user import User  # Assurez-vous que ce fichier existe avec une classe User appropriée
+from app import User
 
 import logging
 
@@ -85,7 +85,7 @@ def login():
             session['user_id'] = user['id_utilisateur']  
 
             # Configurer Flask-Login
-            user_obj = User(user['id_utilisateur'])
+            user_obj = User.get(user['id_utilisateur'])  # Utilisation de la méthode get()
             login_user(user_obj, remember=True)
 
             logger.debug(f"Connexion réussie, session enregistrée : user_id={session.get('user_id')}")
