@@ -1,54 +1,22 @@
-/* Réinitialisation des styles de base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Poppins', 'Open Sans', sans-serif;
-  background-color: #fff8e6;
-  color: #1d1d1b;
-  line-height: 1.6;
-}
-
-/* Container principal */
-.information {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #fff8e6;
-}
-
 /* Titre principal */
 .header-title {
-  font-family: 'DynaPuff', cursive;
-  font-size: 2.5rem;
-  font-weight: 600;
   text-align: center;
-  margin: 30px 0;
-  color: #2e7d32;
+  margin-bottom: 30px;
 }
 
-/* Styles des cartes d'articles */
+/* Cartes d'articles */
 .article-card {
   background-color: #ffffff;
-  border-radius: 15px;
+  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  margin-bottom: 30px;
-  transition: transform 0.3s ease;
+  margin-bottom: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .article-card:hover {
   transform: translateY(-5px);
-}
-
-.article-image {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 15px 15px 0 0;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 .article-content {
@@ -56,17 +24,14 @@ body {
 }
 
 .article-title {
-  font-family: 'DynaPuff', cursive;
   font-weight: 600;
   font-size: 1.4rem;
-  margin-bottom: 15px;
-  color: #3e5622;
+  margin: 15px;
 }
 
 .article-preview {
-  font-size: 1rem;
-  color: #333;
-  margin-bottom: 20px;
+  font-size: 1.1rem;
+  margin: 0px 20px 0px 20px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -77,11 +42,12 @@ body {
 .voir-plus {
   display: inline-block;
   background-color: #94a267;
-  color: #fff8e6;
-  padding: 10px 20px;
+  color: #fff;
+  padding: 12px 24px;
+  margin: 20px;
   text-align: center;
   text-decoration: none;
-  border-radius: 13px;
+  border-radius: 20px;
   font-weight: 500;
   transition: background-color 0.3s ease;
 }
@@ -90,16 +56,16 @@ body {
   background-color: #7d8a55;
 }
 
-/* Pour les écrans moyens (tablettes) */
+/* Responsivité pour tablettes */
 @media screen and (min-width: 768px) {
   .article-cards-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+    gap: 30px;
   }
 }
 
-/* Pour les grands écrans */
+/* Responsivité pour grands écrans */
 @media screen and (min-width: 1024px) {
   .article-cards-container {
     grid-template-columns: repeat(3, 1fr);
@@ -118,22 +84,40 @@ body {
   text-decoration: underline;
 }
 
-/* Bouton de retour */
-.back-button {
+/* Barre de navigation inférieure */
+.group-wrapper {
   position: fixed;
-  top: 20px;
-  left: 20px;
-  width: 50px;
-  height: 50px;
-  background-color: #94a267;
-  border-radius: 50%;
+  bottom: 20px;
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 100;
 }
 
-.back-button img {
-  width: 25px;
-  height: 25px;
+.group-8 {
+  display: flex;
+  gap: 30px;
+}
+
+.group-8 img {
+  width: 45px;
+  height: 45px;
+}
+
+/* Bouton retour */
+.back-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #94a267;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.back-button:hover {
+  background-color: #828e59;
 }

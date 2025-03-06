@@ -1,414 +1,152 @@
-.nous-contacter {
-  background-color: #fff8e6;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-}
+/* Conteneur principal */
+.container {
+  background-color: white;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  padding-bottom: 50px; /* Ajoutez ceci pour éviter que le contenu soit caché */
 
-.nous-contacter .div {
-  background-color: #fff8e6;
-  width: 393px;
-  height: 852px;
-  position: relative;
-}
-
-.nous-contacter .tab-bar {
-  position: absolute;
-  width: 110px;
-  height: 20px;
-  top: 105px;
-  left: 143px;
-}
-
-.nous-contacter .settings {
-  position: absolute;
-  width: 108px;
-  top: -1px;
-  left: -1px;
-  
-  font-family: "Poppins-Medium", Helvetica;
-  font-weight: 500;
-  color: #1e1e2d;
-  font-size: 18px;
   text-align: center;
-  letter-spacing: 0;
-  line-height: 18px;
-  white-space: nowrap;
 }
 
-.nous-contacter .bouton-retour {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  top: 26px;
-  left: 18px;
+/* Barre d'onglet */
+.settings {
   background-color: #94a267;
-  border-radius: 25px;
+  color: white;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px 10px 0 0;
 }
 
-.nous-contacter .arrow-down {
-  position: absolute;
-  width: 33px;
-  height: 33px;
-  top: 8px;
-  left: 8px;
+/* Contenu de la page Contact */
+.contact-content {
+  padding: 20px;
+  margin-bottom: 50px; /* Espace pour la barre de navigation */
+
 }
 
-.nous-contacter .iphone-XS-bars {
-  position: absolute;
-  width: 336px;
-  height: 17px;
-  top: 9px;
-  left: 29px;
+/* Formulaire de contact */
+.contact-form {
+  text-align: left;
 }
 
-.nous-contacter .action {
-  position: absolute;
-  width: 29px;
-  height: 17px;
-  top: 0;
-  left: 0;
-}
-
-.nous-contacter .time {
-  position: absolute;
-  width: 27px;
-  top: -1px;
-  left: -1px;
- 
-  font-family: "SF Pro Display-Semibold", Helvetica;
-  font-weight: 400;
-  color: #000000;
-  font-size: 15px;
+.contact-form h2 {
   text-align: center;
-  letter-spacing: 0;
-  line-height: 18px;
-  white-space: nowrap;
+  color: #333;
+  margin-bottom: 10px;
 }
 
-.nous-contacter .container {
-  position: absolute;
-  width: 60px;
-  height: 12px;
-  top: 2px;
-  left: 276px;
+.form-group {
+  margin-bottom: 15px;
 }
 
-.nous-contacter .battery {
-  position: absolute;
-  width: 22px;
-  height: 12px;
-  top: 0;
-  left: 38px;
-  background-image: url(./img/rectangle.svg);
-  background-size: 100% 100%;
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
 }
 
-.nous-contacter .rectangle {
-  position: relative;
-  width: 16px;
-  height: 8px;
-  top: 2px;
-  left: 2px;
-  background-color: #000000;
-  border-radius: 1.6px;
-}
-
-.nous-contacter .combined-shape {
-  position: absolute;
-  width: 15px;
-  height: 11px;
-  top: 0;
-  left: 0;
-}
-
-.nous-contacter .wi-fi {
-  position: absolute;
-  width: 14px;
-  height: 11px;
-  top: 0;
-  left: 20px;
-}
-
-.nous-contacter .information {
-  position: absolute;
-  width: 335px;
-  height: 248px;
-  top: 245px;
-  left: 29px;
-}
-
-.nous-contacter .group {
-  position: absolute;
-  width: 335px;
-  height: 34px;
-  top: 0;
-  left: 0;
-}
-
-.nous-contacter .group-2 {
-  position: absolute;
-  width: 337px;
-  height: 24px;
-  top: 0;
-  left: 0;
-}
-
-.nous-contacter .personal-information {
-  position: absolute;
-  width: 230px;
-  top: 3px;
-  left: 37px;
-
-  font-family: "Poppins-Regular", Helvetica;
-  font-weight: 400;
-  color: #1e1e2d;
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
   font-size: 14px;
-  letter-spacing: 0;
-  line-height: 14px;
-  white-space: nowrap;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
-.nous-contacter .arrows-diagrams {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  top: 0;
-  left: 311px;
+/* Informations de contact */
+.contact-info {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  text-align: left;
 }
 
-.nous-contacter .img {
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  top: 1px;
-  left: 0;
+.contact-info h3 {
+  color: #333;
+  margin-bottom: 10px;
 }
 
-.nous-contacter .vector {
-  top: 34px;
-  position: absolute;
-  width: 335px;
-  height: 1px;
-  left: 0;
-  object-fit: cover;
-}
-
-.nous-contacter .group-3 {
-  position: absolute;
-  width: 335px;
-  height: 32px;
-  top: 48px;
-  left: 0;
-}
-
-.nous-contacter .group-4 {
-  position: absolute;
-  width: 333px;
-  height: 22px;
-  top: 0;
-  left: 0;
-}
-
-.nous-contacter .text-wrapper {
-  position: absolute;
-  width: 88px;
-  top: 2px;
-  left: 37px;
-  
-  font-family: "Poppins-Regular", Helvetica;
-  font-weight: 400;
-  color: #1e1e2d;
+.contact-info p {
   font-size: 14px;
-  letter-spacing: 0;
-  line-height: 14px;
-  white-space: nowrap;
+  color: #666;
 }
 
-.nous-contacter .interface-essential {
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  top: 0;
-  left: 0;
+/* 🟢 Boutons */
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #94a267;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s;
+  width: 100%;
+  text-align: center;
 }
 
-.nous-contacter .overlap-group-wrapper {
-  position: absolute;
-  width: 20px;
-  height: 18px;
-  top: 2px;
-  left: 313px;
+.btn:hover {
+  background-color: #828e59;
 }
 
-.nous-contacter .overlap-group {
-  position: relative;
-  width: 18px;
-  height: 18px;
-  background-color: #eb0a24;
-  border-radius: 9px;
+/* 🟢 Barre de navigation inférieure */
+.group-wrapper {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1000; /* S'assurer que la barre de navigation ne cache pas d'autres éléments */
+
 }
 
-.nous-contacter .text-wrapper-2 {
-  position: absolute;
-  width: 10px;
-  top: 3px;
-  left: 6px;
-  font-family: "Poppins-Regular", Helvetica;
-  font-weight: 400;
-  color: #ffffff;
-  font-size: 11px;
-  letter-spacing: 0;
-  line-height: 14px;
-  white-space: nowrap;
+.group-8 {
+  display: flex;
+  gap: 20px;
 }
 
-.nous-contacter .vector-2 {
-  top: 32px;
-  position: absolute;
-  width: 335px;
-  height: 1px;
-  left: 0;
-  object-fit: cover;
+.group-8 img {
+  width: 40px;
+  height: 40px;
 }
 
-.nous-contacter .group-5 {
-  position: absolute;
-  width: 335px;
-  height: 34px;
-  top: 102px;
-  left: 0;
-}
+/* Responsive - Mobile */
+@media (max-width: 480px) {
+  .container {
+      width: 95%;
+      max-width: 350px;
+      padding: 15px;
+  }
 
-.nous-contacter .group-wrapper {
-  position: absolute;
-  width: 335px;
-  height: 24px;
-  top: 0;
-  left: 0;
-}
+  .settings {
+      font-size: 16px;
+      padding: 12px;
+  }
 
-.nous-contacter .group-6 {
-  position: relative;
-  width: 337px;
-  height: 24px;
-}
+  .form-group input,
+  .form-group textarea {
+      font-size: 13px;
+      padding: 10px;
+  }
 
-.nous-contacter .message-center {
-  position: absolute;
-  width: 115px;
-  top: 3px;
-  left: 37px;
+  .btn {
+      font-size: 14px;
+      padding: 12px;
+  }
 
-  font-family: "Poppins-Regular", Helvetica;
-  font-weight: 400;
-  color: #1e1e2d;
-  font-size: 14px;
-  letter-spacing: 0;
-  line-height: 14px;
-  white-space: nowrap;
-}
-
-.nous-contacter .group-7 {
-  position: absolute;
-  width: 335px;
-  height: 34px;
-  top: 158px;
-  left: 0;
-}
-
-.nous-contacter .address {
-  position: absolute;
-  width: 57px;
-  top: 3px;
-  left: 37px;
-  
-  font-family: "Poppins-Regular", Helvetica;
-  font-weight: 400;
-  color: #1e1e2d;
-  font-size: 14px;
-  letter-spacing: 0;
-  line-height: 14px;
-  white-space: nowrap;
-}
-
-.nous-contacter .group-8 {
-  position: absolute;
-  width: 335px;
-  height: 34px;
-  top: 214px;
-  left: 0;
-}
-
-.nous-contacter .settings-2 {
-  position: absolute;
-  width: 90px;
-  top: 3px;
-  left: 37px;
- 
-  font-family: "Poppins-Regular", Helvetica;
-  font-weight: 400;
-  color: #1e1e2d;
-  font-size: 14px;
-  letter-spacing: 0;
-  line-height: 14px;
-  white-space: nowrap;
-}
-
-.nous-contacter .overlap {
-  position: absolute;
-  width: 271px;
-  height: 70px;
-  top: 145px;
-  left: 26px;
-}
-
-.nous-contacter .profile {
-  position: absolute;
-  width: 271px;
-  height: 70px;
-  top: 0;
-  left: 0;
-}
-
-.nous-contacter .group-9 {
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  top: 0;
-  left: 0;
-  background-color: #94a267e6;
-  border-radius: 45px;
-}
-
-.nous-contacter .div-wrapper {
-  position: absolute;
-  width: 181px;
-  height: 19px;
-  top: 26px;
-  left: 92px;
-}
-
-.nous-contacter .text-wrapper-3 {
-  position: absolute;
-  width: 179px;
-  top: -1px;
-  left: -1px;
-  
-  font-family: "Poppins-Medium", Helvetica;
-  font-weight: 500;
-  color: #1e1e2d;
-  font-size: 17px;
-  letter-spacing: 0;
-  line-height: 17px;
-  white-space: nowrap;
-}
-
-.nous-contacter .group-10 {
-  position: absolute;
-  width: 45px;
-  height: 50px;
-  top: 10px;
-  left: 12px;
+  .arrow-down {
+      width: 30px;
+      height: 30px;
+  }
 }
