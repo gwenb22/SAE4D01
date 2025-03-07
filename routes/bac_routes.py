@@ -7,6 +7,7 @@ bacs_bp = Blueprint('bacs', __name__)
 def bacs_page():
     return render_template('bacs.html')
 
+
 @bacs_bp.route('/api/bacs')
 def get_bacs(): 
     try:

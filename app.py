@@ -106,6 +106,7 @@ def create_app():
     from routes.progression_routes import progression_bp
     from routes.info_routes import information_bp
     from routes.accueil_routes import accueil_bp
+    from routes.ajout_routes import ajout_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(user_bp)
@@ -118,6 +119,7 @@ def create_app():
     app.register_blueprint(progression_bp)
     app.register_blueprint(information_bp)
     app.register_blueprint(accueil_bp)
+    app.register_blueprint(ajout_bp)
 
     # Définition de la route index
     @app.route('/')
