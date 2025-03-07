@@ -56,8 +56,7 @@ def register():
 
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
-    if current_user.is_authenticated:  # Si l'utilisateur est déjà connecté, rediriger vers la page principale
-        return redirect(url_for('accueil.accueil'))
+
 
     if request.method == 'POST':  # Vérifier que la méthode est bien POST
         email = request.form.get('email')
@@ -102,6 +101,7 @@ def login():
 
 @auth_bp.route('/logout')
 def logout():
+
     """
     Route pour la déconnexion de l'utilisateur.
     """

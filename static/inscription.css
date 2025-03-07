@@ -1,40 +1,50 @@
 body {
-    font-family: Arial, sans-serif;
-    max-width: 400px;
+    font-family: 'Poppins', Arial, sans-serif;
+    max-width: 100%;
     margin: 0 auto;
     padding: 20px;
     background-color: #94a267;
     color: #fff8e6;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    box-sizing: border-box;
 }
 
 h2 {
     text-align: center;
     color: #fff8e6;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 label {
     color: #fff8e6;
-    font-weight: bold;
+    font-weight: 500;
+    margin-bottom: 2px;
+    font-size: 0.9rem;
 }
 
 input {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border: 2px solid #fff8e6;
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: transparent;
     color: #fff8e6;
+    font-size: 1rem;
+    box-sizing: border-box;
+    -webkit-appearance: none; /* Pour éviter les styles par défaut sur iOS */
 }
 
 input:focus {
@@ -46,11 +56,14 @@ button {
     background-color: #fff8e6;
     color: #94a267;
     border: none;
-    padding: 12px;
+    padding: 14px;
     border-radius: 16px;
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s ease;
+    font-size: 1rem;
+    margin-top: 10px;
+    -webkit-appearance: none; 
 }
 
 button:hover {
@@ -60,13 +73,72 @@ button:hover {
 p {
     text-align: center;
     margin-top: 20px;
+    font-size: 0.9rem;
 }
 
 a {
-    color: #926b55;
+    color: #fff8e6;
     text-decoration: underline;
+    font-weight: 500;
 }
 
 input::placeholder {
     color: rgba(255, 248, 230, 0.7);
+}
+
+/* Styles pour les messages d'erreur */
+.error-message, .error, li.error {
+    background-color: rgba(255, 100, 100, 0.2);
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+    list-style-type: none;
+}
+
+/* Styles pour les messages de succès */
+.success, li.success {
+    background-color: rgba(100, 255, 100, 0.2);
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+    list-style-type: none;
+}
+
+/* Ajustements pour les petits écrans */
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    form {
+        gap: 8px;
+    }
+    
+    input {
+        padding: 10px;
+        font-size: 16px; /* Empêche le zoom sur iPhone */
+    }
+    
+    button {
+        padding: 12px;
+    }
+    
+    p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Supprimer les marges des listes de messages flash */
+ul {
+    padding: 0;
+    margin: 0 0 15px 0;
 }
