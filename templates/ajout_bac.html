@@ -18,26 +18,43 @@
 </head>
 <body>
     
-
     <!-- FORMULAIRE POUR SELECTIONNER LA PLANTE A AJOUTER -->
     <div class="form-container">
-        <form action="/" method="POST">
+        <form action="{{ url_for('ajout.ajouter_plante') }}" method="POST">
             <h1>Ajouter une plante au bac</h1>
 
             <label for="plante">Choisir une plante :</label>
-            <select id="plante" name="plante">
-                <option value="tomate">Tomate</option>
-                <option value="basilic">Basilic</option>
-                <option value="menthe">Menthe</option>
-                <option value="persil">Persil</option>
-                <option value="fraise">Fraise</option>
+            <select id="plante" name="plante" required>
+                {% if plantes %}
+                    {% for plante in plantes %}
+                        <option value="{{ plante[0] }}">{{ plante[1] }}</option>
+                    {% endfor %}
+                {% else %}
+                    <option value="1">Tomate</option>
+                    <option value="2">Basilic</option>
+                    <option value="3">Menthe</option>
+                    <option value="4">Persil</option>
+                    <option value="5">Fraise</option>
+                {% endif %}
+            </select>
+
+            <label for="bac_id">Numéro du bac :</label>
+            <select id="bac_id" name="bac_id" required>
+                {% if bacs %}
+                    {% for bac in bacs %}
+                        <option value="{{ bac[0] }}">Bac {{ bac[0] }}</option>
+                    {% endfor %}
+                {% else %}
+                    <option value="1">Bac 1</option>
+                    <option value="2">Bac 2</option>
+                    <option value="3">Bac 3</option>
+                {% endif %}
             </select>
 
             <button type="submit">Ajouter</button>
         </form>
     </div>
 
-    
     <!-- NAVIGATION -->
     <div class="group-wrapper">
         <div class="group-8">
